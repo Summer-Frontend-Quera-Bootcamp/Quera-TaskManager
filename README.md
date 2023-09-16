@@ -1,1 +1,1 @@
-# WE are the the best
+<p style="text-align: center; font-weight: bold;font-size:30px">WE ARE THE <span style="color: red">BEST<span></p>
