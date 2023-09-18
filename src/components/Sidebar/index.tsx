@@ -1,3 +1,4 @@
+import Searchbox from '../Searchbox'
 const index = () => {
   return (
     <div className="h-screen w-[340px] border-l-2">
@@ -9,9 +10,7 @@ const index = () => {
             </svg>
             <p className="ml-auto text-right text-TM font-extra-bold">ورک اسپیس ها</p>
         </div>
-        <div className="flex justify-end mt-[16px]">
-            <input className="w-full text-right outline-none bg-[#F6F7F9] placeholder-[#AAAAAA] placeholder:text-TS" type="text" placeholder="جستوجو  کنید"/>
-        </div>
+        <Searchbox/>
       </div>
     </div>
   )
