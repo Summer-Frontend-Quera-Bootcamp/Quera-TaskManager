@@ -1,10 +1,10 @@
 const index = () => {
     return (
-        <header>
+        <header className = "m-[80px]">
             <ul className="flex flex-row-reverse">
-                <li className="ml-auto">کوئرا تسک منیجر </li>
+                <li className="ml-auto bg-clip-text bg-gradient-to-r from-[#118C80] to-[#4AB7D8] font-extra-bold">کوئرا تسک منیجر </li>
                 <li>ثبت‌نام نکرده‌ای؟</li>
-                <li>ثبت‌نام</li>
+                <li><button className="bg-[#208D8E]">ثبت‌نام</button></li>
             </ul>
         </header>
     )
