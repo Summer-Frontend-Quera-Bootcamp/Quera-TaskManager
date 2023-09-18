@@ -13,6 +13,13 @@ module.exports = {
       'extra-bold': '800',
       black: '900',
     },
+    letterSpacing: {
+      XL: '40px',
+      L: '32px',
+      M: '24px',
+      S: '16px',
+      XS: '8px',
+    },
     extend: {
       fontSize: {
         HL: ['32px', '55.27px'],
@@ -24,7 +31,7 @@ module.exports = {
         TM: ['16px', '27.64px'],
         TS: ['14px', '24.18px'],
         TXS: ['12px', '20.73px'],
-      }
+      },
     },
   },
   plugins: [],
