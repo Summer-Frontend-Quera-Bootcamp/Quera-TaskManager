@@ -1,8 +1,9 @@
+
 const index = () => {
   return (
     <div className=" h-[125px] border-b-2 mt-[41px] mr-[16px] ml-[50px]">
       <div className="text-right border-b-2 h-[64px] flex items-center justify-between">
-        <div className="flex">
+        <div className="flex items-center">
           <p className="font-bold text-TM">اشتراک‌گذاری</p>
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path d="M13.53 7.52002L9.46997 10.56" stroke="#323232" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
@@ -12,7 +13,7 @@ const index = () => {
           <path d="M9.46542 10.5648C10.2582 11.3576 10.2582 12.6429 9.46542 13.4356C8.67266 14.2284 7.38733 14.2284 6.59457 13.4356C5.80181 12.6429 5.80181 11.3575 6.59457 10.5648C7.38734 9.77202 8.67266 9.77202 9.46542 10.5648" stroke="#323232" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
           </svg>
         </div>
-        <div className="flex flex-row-reverse items-center space-x-3">
+        <div className="flex flex-row-reverse items-center space-x-S">
           <h1 className="ml-3 text-HXS font-extra-bold">پروژه اول</h1>
           <div><svg width="1" height="22" viewBox="0 0 1 22" fill="none" xmlns="http://www.w3.org/2000/svg">
             <line x1="0.5" y1="2.18556e-08" x2="0.499999" y2="22" stroke="#999999"/>
@@ -67,8 +68,21 @@ const index = () => {
           </div>
         </div>
       </div>
-      <div>
-        
+      <div className="flex flex-row-reverse items-center h-[61px] space-x-3">
+        <input dir="rtl" className="outline-none ml-[20px] w-[200px] placeholder:text-TXS placeholder:font-normal" type="text" placeholder="جستجو بین تسک‌ها"/>
+        <div><svg width="1" height="22" viewBox="0 0 1 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <line x1="0.5" y1="2.18556e-08" x2="0.499999" y2="22" stroke="#999999"/>
+            </svg>
+        </div>
+        <div className="flex items-center">
+        <p className="mr-[6px]">فیلترها</p>
+        <svg width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M8.12132 5.37868C9.29289 6.55025 9.29289 8.44975 8.12132 9.62132C6.94975 10.7929 5.05025 10.7929 3.87868 9.62132C2.70711 8.44975 2.70711 6.55025 3.87868 5.37868C5.05025 4.20711 6.94975 4.20711 8.12132 5.37868" stroke="#323232" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M20 7.5H9" stroke="#323232" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M20.1213 15.3787C21.2929 16.5502 21.2929 18.4497 20.1213 19.6213C18.9497 20.7929 17.0502 20.7929 15.8787 19.6213C14.7071 18.4497 14.7071 16.5502 15.8787 15.3787C17.0502 14.2071 18.9497 14.2071 20.1213 15.3787" stroke="#323232" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M4 17.5H15" stroke="#323232" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        </div>
       </div>
     </div>
   )
