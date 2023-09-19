@@ -18,8 +18,8 @@ const index = () => {
             <line x1="0.5" y1="2.18556e-08" x2="0.499999" y2="22" stroke="#999999"/>
             </svg>
           </div>
-          <div className="flex">
-          <p className="mr-1 font-semibold text-TM">نمایش لیستی</p>
+          <div className="flex items-center">
+          <p className="mr-1 font-semibold border-none border-b-4 border-[#208D8E] py-5 h-[68px] text-TM">نمایش لیستی</p>
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path d="M11 12H21" stroke="#323232" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
           <path d="M6.41399 10.586C7.19499 11.367 7.19499 12.633 6.41399 13.414C5.63299 14.195 4.36699 14.195 3.58599 13.414C2.80499 12.633 2.80499 11.367 3.58599 10.586C4.36699 9.80499 5.63299 9.80499 6.41399 10.586" stroke="#323232" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
@@ -33,8 +33,8 @@ const index = () => {
             <line x1="0.5" y1="2.18556e-08" x2="0.499999" y2="22" stroke="#999999"/>
             </svg>
           </div>
-          <div className="flex">
-          <p className="mr-1 font-semibold text-TM">نمایش ستونی</p>
+          <div className="flex items-center">
+          <p className="mr-1 font-semibold border-none text-TM border-b-4 border-[#208D8E] py-5 h-[68px]">نمایش ستونی</p>
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path fill-rule="evenodd" clip-rule="evenodd" d="M3 6V18C3 19.6569 4.34315 21 6 21H18C19.6569 21 21 19.6569 21 18V6C21 4.34315 19.6569 3 18 3H6C4.34315 3 3 4.34315 3 6Z" stroke="#323232" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
           <path d="M15 21.0001V9.06006" stroke="#323232" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
@@ -47,8 +47,8 @@ const index = () => {
             <line x1="0.5" y1="2.18556e-08" x2="0.499999" y2="22" stroke="#999999"/>
             </svg>
           </div>
-          <div className="flex">
-          <p className="mr-1 font-extra-bold text-TM">تقویم</p>
+          <div className="flex items-center">
+          <p className="mr-1 font-extra-bold text-TM border-b-4 border-[#208D8E] border-none py-5 h-[68px]">تقویم</p>
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path d="M16 2V6" stroke="#323232" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
           <path d="M8 2V6" stroke="#323232" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
