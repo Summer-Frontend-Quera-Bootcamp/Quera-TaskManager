@@ -7,7 +7,7 @@ const Index = () => {
   const toggleListVisibility = () => setListVisible(!isListVisible);
 
   return (
-    <div className="h-screen w-[340px] border-l-2 absolute right-0">
+    <div className="h-screen border-l-2 ">
       <h2 className="text-HM font-extra-bold text-center mt-[40px] text-transparent bg-clip-text bg-gradient-to-r from-[#118C80] to-[#4AB7D8]">کوئرا تسک منیجر</h2>
       <div className="mt-[27px] mr-[50px] ml-[16px] ">
         <div className="flex select-none" onClick={toggleListVisibility}>
@@ -20,7 +20,7 @@ const Index = () => {
           <Searchbox />
         </div>
       </div>
-      <div className="w-[276px] bg-red-500 h-[89px] absolute bottom-[32px] mx-[32px]" />
+      <div className="w-[276px] bg-stone-500 h-[89px] absolute bottom-[32px] mx-[32px]" />
     </div>
   );
 };
