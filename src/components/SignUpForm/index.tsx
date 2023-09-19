@@ -1,6 +1,46 @@
-const index = () => {
+import { useState } from "react";
+const Index:React.FC = () => {
     let test = 'قوانین و مقررات را می‌پذیرم'
-    let dot = '.'
+    let dot = '.';
+    const [email, setEmail] = useState('');
+    const [isValid, setIsValid] = useState(true);
+    const validateEmail = (email: string): boolean => {
+      const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      return regex.test(email);
+    };
+    const handleEmailChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+      const newEmail = event.target.value;
+      setEmail(newEmail);
+      setIsValid(validateEmail(newEmail));
+    
+    };
+
+    const [password, setPassword] = useState('');
+    const [isValidPassword, setIsValidPassword] = useState(true);
+   
+    const validatePassword = (password: string): boolean => {
+      const regex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*])[A-Za-z\d!@#$%^&*]{8,}$/;
+      return regex.test(password);
+    };
+    const handlePasswordChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+      const newPassword = event.target.value;
+      setPassword(newPassword);
+      setIsValidPassword(validatePassword(newPassword));
+    };
+
+    const [name, setName] = useState('');
+    const [isValidName, setIsValidName] = useState(true);
+
+    const validateName = (name: string): boolean => {
+      return name.trim() !== '';
+    };
+  
+    const handleNameChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+      const newName = event.target.value;
+      setName(newName);
+      setIsValidName(validateName(newName));
+    };
+
     return (
       <div  className="flex flex-col items-center my-[284px] mt-[149px]" dir="rtl" >
 
@@ -10,19 +50,22 @@ const index = () => {
         <div className="text-right mx-[24px] mt-[24px]" >
           <label htmlFor="fullName" className="font-normal text-TS">نام کامل</label>
           <br />
-          <input type="type" id="fullName" className="border border-solid border-1 border-gray-400 rounded-md w-[592px] h-[40px] focus:outline-none" />
+          <input onChange={handleNameChange} value={name} type="type" id="fullName" className="border border-solid border-1 border-gray-400 rounded-md w-[592px] h-[40px] focus:outline-none" />
+          {!isValidName && <span style={{ color: 'red' }}>Name cannot be empty</span>}
         </div>
 
         <div className="text-right mx-[24px] mt-[24px]" >
           <label htmlFor="email" className="font-normal text-TS">ایمیل</label>
           <br />
-          <input type="email" id="email" className="border border-solid border-1 border-gray-400 rounded-md w-[592px] h-[40px] focus:outline-none" />
+          <input onChange={handleEmailChange} type="email" id="email" className="border border-solid border-1 border-gray-400 rounded-md w-[592px] h-[40px] focus:outline-none" />
+          {!isValid  && <span style={{ color: 'red' }}>ایمیل نادرست</span>}
         </div>
         
         <div  className="text-right mx-[24px] mt-[24px]">
-          <label htmlFor="password" className="font-normal text-TS" >رمز عبور</label>
+          <label  htmlFor="password" className="font-normal text-TS" >رمز عبور</label>
           <br />
-          <input type="password" id="password"  className="border border-solid border-1 border-gray-400 rounded-md w-[592px] h-[40px] focus:outline-none" />
+          <input onChange={handlePasswordChange} type="password" id="password"  className="border border-solid border-1 border-gray-400 rounded-md w-[592px] h-[40px] focus:outline-none" />
+          {!isValidPassword && <span style={{ color: 'red' }}>Invalid password</span>}
         </div>
         
 
@@ -42,5 +85,5 @@ const index = () => {
       );
   }
   
-  export default index
+  export default Index
   

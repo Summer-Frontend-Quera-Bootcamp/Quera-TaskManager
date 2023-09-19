@@ -1,4 +1,5 @@
-const index = () => {
+
+const index:React.FC = () => {
     return (
         <header className = "m-[80px] mb-[0px]">
             <ul className="flex flex-row-reverse items-center">
