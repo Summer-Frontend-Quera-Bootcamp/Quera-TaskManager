@@ -1,4 +1,13 @@
-const index = () => {
+import { useState } from "react"
+const Index = () => {
+  const [isClicked,setClicked] = useState<null | Number>(null)
+  const handleClick = (index: number) => {
+    if (isClicked === index) {
+      return { color: "#208D8E", fontWeight: "bold" };
+    } else {
+      return {};
+    }
+  };
   return (
     <div className=" h-[125px] border-b-2 mt-[41px] mr-[16px] ml-[50px]">
       <div className="text-right border-b-2 h-[64px] flex items-center justify-between">
@@ -19,7 +28,7 @@ const index = () => {
             </svg>
           </div>
           <div className="flex">
-          <p className="mr-1 font-semibold text-TM">نمایش لیستی</p>
+          <p className="mr-1 font-extrabold text-TM cursor-pointer" style={handleClick(0)} onClick={()=>setClicked(isClicked === 0 ? null : 0)}>نمایش لیستی</p>
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path d="M11 12H21" stroke="#323232" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
           <path d="M6.41399 10.586C7.19499 11.367 7.19499 12.633 6.41399 13.414C5.63299 14.195 4.36699 14.195 3.58599 13.414C2.80499 12.633 2.80499 11.367 3.58599 10.586C4.36699 9.80499 5.63299 9.80499 6.41399 10.586" stroke="#323232" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
@@ -34,7 +43,7 @@ const index = () => {
             </svg>
           </div>
           <div className="flex">
-          <p className="mr-1 font-semibold text-TM">نمایش ستونی</p>
+          <p className="mr-1 font-semibold text-TM cursor-pointer" style={handleClick(1)} onClick={()=>setClicked(isClicked === 1 ? null : 1)}>نمایش ستونی</p>
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path fill-rule="evenodd" clip-rule="evenodd" d="M3 6V18C3 19.6569 4.34315 21 6 21H18C19.6569 21 21 19.6569 21 18V6C21 4.34315 19.6569 3 18 3H6C4.34315 3 3 4.34315 3 6Z" stroke="#323232" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
           <path d="M15 21.0001V9.06006" stroke="#323232" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
@@ -48,7 +57,7 @@ const index = () => {
             </svg>
           </div>
           <div className="flex">
-          <p className="mr-1 font-extra-bold text-TM">تقویم</p>
+          <p className="mr-1 font-semibold text-TM cursor-pointer" style={handleClick(2)} onClick={()=>setClicked(isClicked === 2 ? null : 2)}>تقویم</p>
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path d="M16 2V6" stroke="#323232" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
           <path d="M8 2V6" stroke="#323232" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
@@ -74,4 +83,4 @@ const index = () => {
   )
 }
 
-export default index
+export default Index
