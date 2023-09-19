@@ -16,7 +16,9 @@ const Index = () => {
           </svg>
           <p className="ml-auto text-right text-TM font-extra-bold">ورک اسپیس ها</p>
         </div>
-        {isListVisible && <Searchbox />}
+        <div className={`transition-opacity ${isListVisible ? 'opacity-100' : 'opacity-0'} ease-in-out duration-300`}>
+          <Searchbox />
+        </div>
       </div>
       <div className="w-[276px] bg-red-500 h-[89px] absolute bottom-[32px] mx-[32px]" />
     </div>
