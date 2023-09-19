@@ -20,6 +20,9 @@ module.exports = {
       S: '16px',
       XS: '8px',
     },
+    backgroundSize: {
+      'twenty': '20px',
+    },
     extend: {
       fontSize: {
         HL: ['32px', '55.27px'],
