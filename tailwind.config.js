@@ -46,6 +46,9 @@ module.exports = {
         'S' : '16px',
         'XS': '8px',
       },
+      backgroundImage: theme =>( {
+        'not-found': "url('./assest/images/notfound.svg')",
+      }),
     },
   },
   plugins: [],

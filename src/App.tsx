@@ -1,12 +1,10 @@
-// import Navbar from './components/Navbar'
-// import Sidebar from './components/Sidebar'
-// import Header from './components/Header'
 import Login from './components/Login'
-// import Form from './components/Form'
 import SignUp from './components/SignUp'
 import Main from './Pages/Main/Index'
+import NotFound from './Pages/NotFound/Index'
 import './App.css';
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { BrowserRouter, Route, Routes, Navigate } from 'react-router-dom';
+
 
 function App() {
   return (
@@ -15,6 +13,8 @@ function App() {
         <Route path="/" element={<Login/>} />
         <Route path="/SignUp" element={<SignUp/>} />
         <Route path="/main" element={<Main/>} />
+        <Route path="/404" element={<NotFound/>} />
+        <Route path="*" element={<Navigate to="404"/>} />
       </Routes>
     </BrowserRouter>
   );
