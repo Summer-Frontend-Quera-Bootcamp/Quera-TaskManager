@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 const Index:React.FC = () => {
     let greetin = 'به کوئرا تسک منیجر خوش برگشتی '
     let smile = ':)';
@@ -55,7 +56,7 @@ const Index:React.FC = () => {
         
 
         <a href="https://Quera.ir" className="text-right mx-[24px] mt-[8px] text-[#208D8E] font-extra-bold text-TXS">رمز عبور را فراموش کرده‌ای؟</a>
-        <button className="mx-[24px] mt-[32px] mb-[24px] p-[10px]  bg-[#208D8E] rounded-md text-[#FFFFFF] hover:bg-teal-700">ورود</button>
+        <button className="mx-[24px] mt-[32px] mb-[24px] p-[10px]  bg-[#208D8E] rounded-md text-[#FFFFFF] hover:bg-teal-700"><Link to="/main">ورود</Link></button>
         <div className="flex flex-row-reverse m-auto text-TM">
           <a className="text-[#208D8E] font-extra-bold mr-[7px]" href="https://quera.ir">ثبت‌نام</a>
           <p className = "font-medium">ثبت‌نام نکرده‌ای؟</p>
