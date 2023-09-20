@@ -1,5 +1,6 @@
-import { getValue } from "@testing-library/user-event/dist/utils";
+// import { getValue } from "@testing-library/user-event/dist/utils";
 import { useState } from "react";
+import { Link } from 'react-router-dom';
 const Index:React.FC = () => {
     let test = 'قوانین و مقررات را می‌پذیرم'
     let dot = '.';
@@ -123,7 +124,7 @@ const Index:React.FC = () => {
             <label htmlFor="terms" className="text-TS mr-[8px]">{test}{dot}</label>
           </div>
 
-          <button onClick={btnHandler} className="mx-[24px] mt-[32px] mb-[24px] p-[10px]  bg-[#208D8E] rounded-md text-[#FFFFFF] hover:bg-teal-700">ثبت‌نام</button>
+          <Link to="/main" className="mx-[24px] mt-[32px] mb-[24px] p-[10px]  bg-[#208D8E] rounded-md text-[#FFFFFF] hover:bg-teal-700 text-center"><button onClick={btnHandler}>ثبت‌نام</button></Link>
       </form>
     
     </div>
