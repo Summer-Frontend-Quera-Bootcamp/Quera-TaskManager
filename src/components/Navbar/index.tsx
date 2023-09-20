@@ -1,4 +1,4 @@
-const index = () => {
+const Index = () => {
   return (
     <div className=" h-[125px] border-b-2 mt-[41px] mr-[16px] ml-[50px]">
       <div className="text-right border-b-2 h-[64px] flex items-center justify-between">
