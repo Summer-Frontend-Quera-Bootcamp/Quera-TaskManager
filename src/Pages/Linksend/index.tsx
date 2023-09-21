@@ -3,7 +3,7 @@ import Header from '../../components/Header'
 const index = () => {
   return (
     <div className="h-screen overflow-hidden">
-        <Header />
+        <Header Text='قبلا ثبت نام کرده ای؟' buttonText='ورود'/>
         <div  className="flex justify-center mt-[250px]" dir="rtl" >
         <form className ="flex flex-col bg-white rounded-lg  w-[640px] h-[156px] shadow-md z-[1]">
 
