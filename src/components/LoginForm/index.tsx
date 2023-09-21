@@ -35,7 +35,7 @@ const Index:React.FC = () => {
 
     return (
       <div  className="flex flex-col items-center my-[284px] mt-[149px]" dir="rtl" >
-        <form className ="flex flex-col border border-whith bg-white rounded-lg  w-[640px] h-[456px] shadow-md z-[1]">
+        <form className ="flex flex-col bg-white rounded-lg  w-[640px] h-[456px] shadow-md z-[1]">
 
           <h1 className="text-HL text-center pt-[24px]"> {greetin}{smile}</h1>
   
