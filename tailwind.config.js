@@ -39,6 +39,16 @@ module.exports = {
         // this is for main page
         'main': '1fr 340px',
       },
+      spacing: {
+        'XL': '40px',
+        'L' : '32px',
+        'M' : '24px',
+        'S' : '16px',
+        'XS': '8px',
+      },
+      backgroundImage: theme =>( {
+        'not-found': "url('./assest/images/notfound.svg')",
+      }),
     },
   },
   plugins: [],
