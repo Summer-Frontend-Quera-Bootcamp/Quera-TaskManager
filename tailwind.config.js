@@ -35,6 +35,10 @@ module.exports = {
         TS: ['14px', '24.18px'],
         TXS: ['12px', '20.73px'],
       },
+      gridTemplateColumns: {
+        // this is for main page
+        'main': '1fr 340px',
+      },
     },
   },
   plugins: [],
