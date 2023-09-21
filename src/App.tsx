@@ -2,6 +2,9 @@ import Login from './components/Login'
 import SignUp from './components/SignUp'
 import Main from './Pages/Main/Index'
 import NotFound from './Pages/NotFound/Index'
+import Forgot from './Pages/Forgot/'
+import Linksend from './Pages/Linksend'
+import Forgotnewpass from './Pages/Forgotnewpass'
 import './App.css';
 import { BrowserRouter, Route, Routes, Navigate } from 'react-router-dom';
 
@@ -13,6 +16,9 @@ function App() {
         <Route path="/" element={<Login/>} />
         <Route path="/SignUp" element={<SignUp/>} />
         <Route path="/main" element={<Main/>} />
+        <Route path="/forgot" element={<Forgot/>} />
+        <Route path="/linksend" element={<Linksend/>} />
+        <Route path="/forgotnewpass" element={<Forgotnewpass/>} />
         <Route path="/404" element={<NotFound/>} />
         <Route path="*" element={<Navigate to="404"/>} />
       </Routes>

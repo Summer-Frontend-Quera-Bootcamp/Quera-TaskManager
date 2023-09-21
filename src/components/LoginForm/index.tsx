@@ -58,7 +58,7 @@ const Index:React.FC = () => {
             className="  border border-solid border-1 border-gray-400 rounded-md w-[592px] h-[40px] focus:outline-none" />
           </div>
           
-          <a href="https://Quera.ir" className="text-right mx-[24px] mt-[8px] text-[#208D8E] font-extra-bold text-TXS">رمز عبور را فراموش کرده‌ای؟</a>
+          <Link to="/forgot" className="text-right mx-[24px] mt-[8px] text-[#208D8E] font-extra-bold text-TXS">رمز عبور را فراموش کرده‌ای؟</Link>
           <Link to="/main" className="mx-[24px] mt-[32px] mb-[24px] p-[10px]  bg-[#208D8E] rounded-md text-[#FFFFFF] hover:bg-teal-700 text-center"><button>ورود</button></Link>
         
           <div className="flex flex-row-reverse m-auto text-TM">
