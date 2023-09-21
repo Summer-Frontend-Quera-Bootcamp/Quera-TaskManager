@@ -8,7 +8,7 @@ const Index = () => {
   const handleClick = (index: number) => clickedIndex === index ? null : setClickedIndex(index);
   const setStyle = (index: number) => (clickedIndex === index ? { color: "#208D8E", fontWeight: "bold"} : {});
   return (
-    <div className=" h-[125px] border-b-2 mt-[41px] mr-[16px] ml-[50px]">
+    <div className=" h-[125px] border-b-2 fixed right-[356px] top-[41px] left-[50px]">
       <div className="text-right border-b-2 h-[64px] flex items-center justify-between">
         <div className="flex cursor-pointer">
           <p className="font-bold text-TM">اشتراک‌گذاری</p>
