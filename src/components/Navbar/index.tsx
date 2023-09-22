@@ -3,6 +3,7 @@ import SvgCol from "../iconComponents/col";
 import SvgCelender from "../iconComponents/celender";
 import SvgDoList from "../iconComponents/dolist";
 import Shareicon from "../iconComponents/Shareicon"
+import Navborder from "../NavBorder/buttonborder";
 const Index = () => {
   const [clickedIndex, setClickedIndex] = useState<number | null>(null);
   const handleClick = (index: number) => clickedIndex === index ? null : setClickedIndex(index);
@@ -53,8 +54,14 @@ const Index = () => {
           </div>
         </div>
       </div>
-      <div>
-      </div>
+      {clickedIndex !== null && (
+        <div onClick={() => handleClick(clickedIndex)}>
+          <Navborder
+            width={clickedIndex === 0 ? 105 : clickedIndex === 1 ? 108 : 60}
+            right={clickedIndex === 0 ? 101 : clickedIndex === 1 ? 234 : 368}
+          />
+        </div>
+      )}
     </div>
   )
 }
