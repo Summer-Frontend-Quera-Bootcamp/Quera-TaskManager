@@ -70,10 +70,10 @@ const Index:React.FC = () => {
 
 //---------------------------------------------------------------------------  
     return (
-      <div className="flex flex-col items-center my-[284px] mt-[149px]" dir="rtl" >
+      <div className="flex flex-col items-center my-auto mt-[149px]" dir="rtl" >
 
-        <form className ='needs-validation flex flex-col border border-whith bg-white rounded-lg  w-[640px] h-[507px] shadow-md z-[1]' noValidate>
-          <h1 className='text-HL text-center pt-[24px]'> ثبت‌نام در کوئرا تسک منیجر </h1>
+        <form className ="needs-validation flex flex-col border border-whith bg-white rounded-lg  h-[507px] shadow-md z-[1]" noValidate>
+          <h1 className="sm:text-HL text-HS text-center pt-[24px] mx-[65.5px]"> ثبت‌نام در کوئرا تسک منیجر </h1>
 
           <div className="text-right mx-[24px] mt-[24px]" >
             <label htmlFor="fullName" className="font-normal text-TS">نام کامل</label>
@@ -84,7 +84,7 @@ const Index:React.FC = () => {
             value={name} 
             type="type" 
             id="fullName" 
-            className={`border border-solid border-1 border-gray-400 rounded-md w-[592px] h-[40px] focus:outline-none
+            className={`border border-gray-400 rounded-md w-full h-[40px] focus:outline-none
             ${isNameFocused  && !isValidName ? 'bg-red-50 border border-red-500' : ''}
             `} />
           </div>
@@ -97,7 +97,7 @@ const Index:React.FC = () => {
             onChange={handleEmailChange} 
             type="email" 
             id="email" 
-            className={`border border-solid border-1 border-gray-400 rounded-md w-[592px] h-[40px] focus:outline-none 
+            className={`border border-gray-400 rounded-md w-full h-[40px] focus:outline-none 
             ${isEmailFocused  && !isValid ? 'bg-red-50 border border-red-500' : ''}
             `} />
           </div>
@@ -110,7 +110,7 @@ const Index:React.FC = () => {
             onFocus={handlePasswordFocused} 
             type="password" 
             id="password" 
-            className={`border border-solid border-1 border-gray-400 rounded-md w-[592px] h-[40px] focus:outline-none 
+            className={`border border-solid border-1 border-gray-400 rounded-md w-full h-[40px] focus:outline-none 
             ${isPasswordFocused  && !isValidPassword ? 'bg-red-50 border border-red-500' : ''}
             `}/>
           </div>

@@ -34,10 +34,10 @@ const Index:React.FC = () => {
     
 
     return (
-      <div  className="flex flex-col items-center my-[284px] mt-[149px]" dir="rtl" >
+      <div  className="flex flex-col items-center my-auto mt-[149px]" dir="rtl" >
         <form className ="flex flex-col bg-white rounded-lg shadow-md z-[1]">
 
-          <h1 className="text-HL text-center pt-[24px]"> {greetin}{smile}</h1>
+          <h1 className="sm:text-HL text-HS text-center pt-[24px] mx-[65.5px]"> {greetin}{smile}</h1>
   
           <div className="text-right mx-[24px]" >
             <label htmlFor="email" className="font-normal text-TS">ایمیل</label>
@@ -45,7 +45,7 @@ const Index:React.FC = () => {
             <input 
             type="email" 
             id="email" 
-            className="border border-solid border-1 border-gray-400 rounded-md w-[592px] h-[40px] focus:outline-none" 
+            className="border border-gray-400 rounded-md w-full h-[40px] focus:outline-none" 
             /> 
           </div>
 
@@ -55,7 +55,7 @@ const Index:React.FC = () => {
             <input  
             type="password" 
             id="password"  
-            className="  border border-solid border-1 border-gray-400 rounded-md w-[592px] h-[40px] focus:outline-none" />
+            className="border border-gray-400 rounded-md w-full h-[40px] focus:outline-none" />
           </div>
           
           <Link to="/forgot" className="text-right mx-[24px] mt-[8px] text-[#208D8E] font-extra-bold text-TXS">رمز عبور را فراموش کرده‌ای؟</Link>
