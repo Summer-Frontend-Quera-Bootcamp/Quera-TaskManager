@@ -35,7 +35,7 @@ const Index:React.FC = () => {
 
     return (
       <div  className="flex flex-col items-center my-[284px] mt-[149px]" dir="rtl" >
-        <form className ="flex flex-col bg-white rounded-lg  w-[640px] h-[456px] shadow-md z-[1]">
+        <form className ="flex flex-col bg-white rounded-lg shadow-md z-[1]">
 
           <h1 className="text-HL text-center pt-[24px]"> {greetin}{smile}</h1>
   
@@ -61,7 +61,7 @@ const Index:React.FC = () => {
           <Link to="/forgot" className="text-right mx-[24px] mt-[8px] text-[#208D8E] font-extra-bold text-TXS">رمز عبور را فراموش کرده‌ای؟</Link>
           <Link to="/main" className="mx-[24px] mt-[32px] mb-[24px] p-[10px]  bg-[#208D8E] rounded-md text-[#FFFFFF] hover:bg-teal-700 text-center"><button>ورود</button></Link>
         
-          <div className="flex flex-row-reverse m-auto text-TM">
+          <div className="flex flex-row-reverse m-auto text-TM my-[24px]">
             <Link className="text-[#208D8E] font-extra-bold mr-[7px]" to="/SignUp">ثبت‌نام</Link>
             <p className = "font-medium">ثبت‌نام نکرده‌ای؟</p>
           </div>
