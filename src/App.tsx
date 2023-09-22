@@ -8,6 +8,7 @@ import Linksend from './Pages/Linksend'
 import Forgotnewpass from './Pages/Forgotnewpass'
 import './App.css';
 import { BrowserRouter, Route, Routes, Navigate } from 'react-router-dom';
+import AccountInformation  from './components/AccountInformation/index'
 
 
 function App() {
@@ -23,6 +24,7 @@ function App() {
         <Route path="/Forgotnewpass" element={<Forgotnewpass/>} />
         <Route path="*" element={<Navigate to="404"/>} />
         <Route path="/Profile1" element={<Profile1/>} />
+        <Route path="/AccountInformation" element={<AccountInformation/>} />
       </Routes>
     </BrowserRouter>
   );
