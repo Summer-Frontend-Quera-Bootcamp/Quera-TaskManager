@@ -1,7 +1,7 @@
 const Index = () => {
     return (
         <div>
-            <div className="fixed right-0 w-340 h-1024 bg-white flex flex-col">
+            <div className="fixed right-0 flex flex-col bg-white w-340 h-1024">
             <div className="absolute left-[1/2] -ml-0.5 w-[0.5px] border-solid h-screen bg-[#AAAAAA]"></div>
                 <div className="box-content h-[55px] w-[235px] float-right top-[40px] left-[55px] text-right leading-[55.27px] font-black text-transparent text-3xl bg-clip-text bg-gradient-to-r from-[#118C80] to-[#4AB7D8] mr-[50px] mt-[40px]">کوئرا تسک منیجر</div>
                 <button className="bg-[#208D8E] w-[120px] h-[43px] rounded-lg ml-[125px] mt-[45px] " >
