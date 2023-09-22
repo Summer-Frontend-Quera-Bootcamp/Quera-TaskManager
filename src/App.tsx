@@ -3,12 +3,14 @@ import SignUp from './components/SignUp'
 import Main from './Pages/Main/Index'
 import NotFound from './Pages/NotFound/Index'
 import Profile1 from './components/Profile1/index'
+import ProfileStates from './components/ProfileStates'
 import Forgot from './Pages/Forgot'
 import Linksend from './Pages/Linksend'
 import Forgotnewpass from './Pages/Forgotnewpass'
 import './App.css';
 import { BrowserRouter, Route, Routes, Navigate } from 'react-router-dom';
-import AccountInformation  from './components/AccountInformation/index'
+import AccountInformation  from './components/AccountInformation/index';
+import ShowInformation from './components/ShowInformation/Index';
 
 
 function App() {
@@ -24,7 +26,9 @@ function App() {
         <Route path="/Forgotnewpass" element={<Forgotnewpass/>} />
         <Route path="*" element={<Navigate to="404"/>} />
         <Route path="/Profile1" element={<Profile1/>} />
+        <Route path="/ProfileStates" element={<ProfileStates/>} />
         <Route path="/AccountInformation" element={<AccountInformation/>} />
+        <Route path="/ShowInformation" element={<ShowInformation/>} />
       </Routes>
     </BrowserRouter>
   );
