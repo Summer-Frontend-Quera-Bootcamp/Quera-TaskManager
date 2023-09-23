@@ -3,7 +3,7 @@ import dayGridPlugin from '@fullcalendar/daygrid'
 
 const Index = () => {
   return (
-    <div className="absolute top-[187px] left-[51px] right-[356px] bottom-[58px] overflow-hidden border ">
+    <div className="absolute top-[187px] left-[51px] right-[356px] bottom-[58px] overflow-hidden ">
     <FullCalendar
         plugins={[ dayGridPlugin ]}
         initialView="dayGridMonth"
