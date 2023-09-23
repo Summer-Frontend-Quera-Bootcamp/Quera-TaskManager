@@ -6,6 +6,7 @@ import Shareicon from "../iconComponents/Shareicon";
 import Navborder from "../NavBorder/buttonborder";
 import NavBoxSearch from "../NavbarSearch/navBoxSearch";
 import SvgFilter from "../iconComponents/filter";
+import PersianCalendar from "../buttonCelender/buttonCelender";
 
 const Index = () => {
   const [clickedIndex, setClickedIndex] = useState<number | null>(null);
@@ -143,7 +144,7 @@ const Index = () => {
           clickedIndex !== null
             ? "transform translate-y-0 opacity-100"
             : "transform           -translate-y-full opacity-0"
-        } ease-in-out duration-300`}
+        } ease-in-out duration-300 border-b-2`}
       >
         {clickedIndex === 2 ? (
           <div className="flex flex-row-reverse ">
@@ -164,6 +165,9 @@ const Index = () => {
                   stroke="#999999"
                 />
               </svg>
+            </div>
+            <div>
+              <PersianCalendar />
             </div>
           </div>
         ) : (
