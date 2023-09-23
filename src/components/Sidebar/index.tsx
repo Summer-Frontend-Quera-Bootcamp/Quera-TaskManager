@@ -10,7 +10,7 @@ const Index = () => {
   return (
     <div className="fixed flex flex-col justify-between right-0 h-screen border-l-2 w-[340px]">
       <div>
-      <h2 className="text-HM font-extra-bold text-center mt-[40px] text-transparent bg-clip-text bg-gradient-to-r from-[#118C80] to-[#4AB7D8]">کوئرا تسک منیجر</h2>
+      <h2 className="text-HL font-extra-bold text-center mt-[40px] text-transparent bg-clip-text bg-gradient-to-r from-[#118C80] to-[#4AB7D8]">کوئرا تسک منیجر</h2>
       <div className="mt-[27px] mr-[50px] ml-[16px] ">
         <div className="flex select-none" onClick={toggleListVisibility}>
           <svg className={`transform transition-transform ${isListVisible ? '' : 'rotate-90'}`} width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
