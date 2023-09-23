@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 const Index: React.FC = () => {
   return (
-    <div  className=" mt-[170px] ml-[688px] mr-[58px] h-[590px] w-[354px] text-right "  dir="rtl" >
+    <div  className="  mt-[170px] ml-[688px] mr-[58px] h-[590px] w-[354px]"  dir="rtl" >
     <form>
       <h1 className='w-[200px] h-[54px] font-bold text-HL'>اطلاعات حساب</h1>
       <div className='mt-[32px] '>
@@ -26,7 +26,6 @@ const Index: React.FC = () => {
 
       <div className='mt-[16px]'>
         <label htmlFor="password" className='text-TS font-normal'> تکرار رمز عبور جدید</label>
-        <br/>
         <input type='password' className="border border-gray-400 rounded-md w-full h-[40px] focus:outline-none"/>
       </div>
 
