@@ -37,7 +37,7 @@ const Index:React.FC = () => {
 
      //---------functions used for password validation--------------------------------
     const validatePassword = (password: string): boolean => {
-      const regex = /^(?=.*\d)(?=.*[a-z]).{8,}$/;
+      const regex =  /^(?=.*\d)(?=.*[a-zA-Z]).{8,}$/;
       return regex.test(password);
     };
     const handlePasswordChange = (event: React.ChangeEvent<HTMLInputElement>) => {

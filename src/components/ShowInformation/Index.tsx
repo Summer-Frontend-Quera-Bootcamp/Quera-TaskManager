@@ -9,22 +9,20 @@ import React, { useState } from 'react';
 const Index:React.FC = () => {
   const[profile, setProfile] = useState("");
 
-
+//------------------------------------
   const PersonHandler =() =>{
     setProfile(profile => "PersonInformation");
-
   }
-
-  // const[account, setAccountInfo] = useState("");
+//------------------------------------
   const accountHandler =() =>{
     setProfile(profile => "AccountInformation");  
   }
-
+//------------------------------------
   const settingHandler =() =>{
     setProfile(profile => "setting");  
   }
 
-
+  
 
     return (
         <div className="flex flex-row-reverse h-screen overflow-hidden">
@@ -35,17 +33,17 @@ const Index:React.FC = () => {
                     <Rightflag/>
                 </button>
                 <div className="mt-[36px] mr-[50px] ml-[24px] flex flex-col space-y-L">
-                    <div onClick={PersonHandler} className="flex flex-row-reverse items-center w-full cursor-pointer">
+                    <div onClick={PersonHandler} className={`flex flex-row-reverse items-center w-full cursor-pointer font-medium text-TL rounded ${profile === "PersonInformation" && "bg-[#C2F7FA]  "}`}>
                         <Personalinfo/>
-                        <p className="mr-1 font-medium text-TL">اطلاعات فردی</p>
+                        <p className={`mr-1 ${profile === "PersonInformation" && "font-extra-bold text-HXS"}`}>اطلاعات فردی</p>
                     </div>
-                    <div onClick={accountHandler} className="flex flex-row-reverse items-center w-full cursor-pointer">
+                    <div onClick={accountHandler} className={`flex flex-row-reverse items-center w-full cursor-pointer font-medium text-TL rounded ${profile === "AccountInformation" && "bg-[#C2F7FA] "}`}>
                         <Accountinfo/>
-                        <p className="mr-1 font-medium text-TL">اطلاعات حساب</p>
+                        <p className={`mr-1 ${profile === "AccountInformation" && "font-extra-bold text-HXS"}`}>اطلاعات حساب</p>
                     </div>
-                    <div onClick={settingHandler} className="flex flex-row-reverse items-center w-full bg-[#C2F7FA] cursor-pointer">
+                    <div onClick={settingHandler} className={`flex flex-row-reverse items-center w-full cursor-pointer font-medium text-TL rounded ${profile === "setting"  && "bg-[#C2F7FA] "}`}>
                         <Settingsicon/>
-                        <p className="mr-1 font-medium text-TL">تنظیمات</p>
+                        <p className={`mr-1 ${profile === "setting" && "font-extra-bold text-HXS"}`}>تنظیمات</p>
                     </div>
                 </div>
             </div>
