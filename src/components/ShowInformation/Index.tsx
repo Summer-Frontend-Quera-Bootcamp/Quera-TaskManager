@@ -25,7 +25,7 @@ const Index:React.FC = () => {
       <div className="h-screen overflow-hidden">
         
         <div>
-            <div className="fixed right-0 w-340 h-1024 bg-white flex flex-col">
+            <div className="fixed right-0 flex flex-col bg-white w-340 h-1024">
             <div className="absolute left-[1/2] -ml-0.5 w-[0.5px] border-solid h-screen bg-[#AAAAAA]"></div>
                 <div className="box-content h-[55px] w-[235px] float-right top-[40px] left-[55px] text-right leading-[55.27px] font-black text-transparent text-3xl bg-clip-text bg-gradient-to-r from-[#118C80] to-[#4AB7D8] mr-[50px] mt-[40px]">کوئرا تسک منیجر</div>
                 <button className="w-[113px] h-[43px] top-[170px] left-[177px] rounded-lg gap-[8px] pt-2 pr-1 pb-2 pl-1 bg-[#208D8E] flex ml-[148px] mt-[80px] mr-[40px]">
@@ -73,9 +73,9 @@ const Index:React.FC = () => {
                 </div>
             </div>
         </div>
-        {profile === "PersonInformation" && <h1 className='text-HL'>sina</h1> }
+        {profile === "PersonInformation" && <h1 className='text-center text-HL'>sina</h1> }
         {profile === "AccountInformation" && <AccountInformation/> }
-        {profile === "setting" && <h1 className='text-HL'>zahra</h1> }
+        {profile === "setting" && <h1 className='text-center text-HL'>zahra</h1> }
         
 
     </div>

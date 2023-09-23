@@ -24,7 +24,7 @@ const Index = () => {
       </div>
       </div>
       <div className=" h-[89px] m-[32px] relative">
-        <Link to="/profile1">
+        <Link to="/ShowInformation">
           <div className="absolute top-0 right-0 flex items-center cursor-pointer space-x-XS">
             <p className="font-medium text-TM">نیلوفر موجودی</p>
             <svg width="36" height="37" viewBox="0 0 36 37" fill="none" xmlns="http://www.w3.org/2000/svg">
