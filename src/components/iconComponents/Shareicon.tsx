@@ -1,6 +1,6 @@
 import * as React from "react";
 
-function SvgCol(props:React.SVGProps<SVGSVGElement>){
+function SvgShareIcon(props:React.SVGProps<SVGSVGElement>){
     return (
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path d="M13.53 7.52002L9.46997 10.56" stroke="#323232" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
@@ -12,4 +12,4 @@ function SvgCol(props:React.SVGProps<SVGSVGElement>){
 
     );
 }
-export default SvgCol
+export default SvgShareIcon

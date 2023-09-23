@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import Searchbox from '../Searchbox';
-import Exiticon from '../iconComponents/exit-icon'
+import Darkmode from '../iconComponents/exit-icon'
 import { Link } from 'react-router-dom'
 const Index = () => {
   const [isListVisible, setListVisible] = useState(false);
@@ -30,12 +30,14 @@ const Index = () => {
             <svg width="36" height="37" viewBox="0 0 36 37" fill="none" xmlns="http://www.w3.org/2000/svg">
             <rect width="36" height="37" rx="18" fill="#DBE4FF"/>
             <path d="M16.5178 23H15.3833L11.0906 16.4273V23H9.96148V14.4691H11.0906L15.3942 21.0745V14.4691H16.5178V23ZM19.9671 14.4691L22.7543 21.4291L25.5471 14.4691H27.0034V23H25.8798V19.6782L25.9834 16.0891L23.1853 23H22.3234L19.5253 16.1109L19.6398 19.6782V23H18.5162V14.4691H19.9671Z" fill="#4C6EF5"/>
-            </svg>
+            </svg> 
           </div>
         </Link>
         <div className="absolute bottom-0 flex items-center justify-between w-full">
-          <div className="cursor-pointer">
-            <Exiticon />
+          <div className="cursor-pointer ml-[8px] h-[36px] bg-[#F1F3F5] w-[64px] flex flex-row-reverse items-center rounded-md">
+            <div className="m-[3px] bg-white rounded-md p-[3px]">
+              <Darkmode />
+            </div>
           </div>
           <Link to="/">
             <div className="flex items-center cursor-pointer">

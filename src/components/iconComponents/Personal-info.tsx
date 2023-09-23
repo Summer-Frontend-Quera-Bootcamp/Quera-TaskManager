@@ -1,6 +1,6 @@
 import * as React from "react";
 
-function SvgCol(props:React.SVGProps<SVGSVGElement>){
+function SvgPersonalInfo(props:React.SVGProps<SVGSVGElement>){
     return (
         <svg width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path d="M15 5.7C16.7 7.4 16.7 10.1 15 11.7C13.3 13.3 10.6 13.4 8.99999 11.7C7.39999 10 7.29999 7.3 8.99999 5.7C10.7 4.1 13.3 4.1 15 5.7" stroke="#323232" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
@@ -9,4 +9,4 @@ function SvgCol(props:React.SVGProps<SVGSVGElement>){
         </svg>
     );
 }
-export default SvgCol
+export default SvgPersonalInfo
