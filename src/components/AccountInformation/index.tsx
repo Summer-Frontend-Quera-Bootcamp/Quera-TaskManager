@@ -3,7 +3,7 @@ const Index: React.FC = () => {
   return (
     <div  className="  mt-[170px] mr-[58px] w-[354px]"  dir="rtl" >
     <form>
-      <h1 className='w-[200px] h-[54px] font-bold text-HL'>اطلاعات حسا ب</h1>
+      <h1 className='w-[200px] h-[54px] font-bold text-HL'>اطلاعات حساب</h1>
       <div className='mt-[32px]'>
         <label className='font-normal text-TS' htmlFor="email">ایمیل</label>
         <input type='email'  className="border border-gray-400 rounded-md w-full h-[40px] focus:outline-none" />

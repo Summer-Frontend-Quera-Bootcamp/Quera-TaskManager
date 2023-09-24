@@ -1,6 +1,6 @@
 import { useState } from "react";
 import Searchbox from "../Searchbox";
-import Darkmode from "../iconComponents/exit-icon";
+import Darkmode from "../iconComponents/Darkmodeicon";
 import { Link } from "react-router-dom";
 import SvgMoon from "../iconComponents/moon";
 
