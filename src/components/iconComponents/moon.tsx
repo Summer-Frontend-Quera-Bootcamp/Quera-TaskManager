@@ -1,8 +1,16 @@
 import * as React from "react";
 
 function SvgMoon(props: React.SVGProps<SVGSVGElement>) {
+  const { className, ...restProps } = props; 
+
   return (
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30" id="moon" className="w-[32px] ml-[2px] z-[1]">
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 30 30"
+      id="moon"
+      className={`w-[32px] ml-[2px] z-[1] ${className} `}
+      {...restProps}
+    >
       <path
         fill="none"
         stroke="#fff"
@@ -14,4 +22,5 @@ function SvgMoon(props: React.SVGProps<SVGSVGElement>) {
     </svg>
   );
 }
+
 export default SvgMoon;

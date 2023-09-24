@@ -7,9 +7,9 @@ import SvgMoon from "../iconComponents/moon";
 const Index = () => {
   const [isListVisible, setListVisible] = useState(false);
   const [isMoonActive, setMoonActive] = useState(false);
+  const [isIoToLeft, setIoToLeft] = useState(false);
 
   const toggleListVisibility = () => setListVisible(!isListVisible);
-  const [isIoToLeft, setIoToLeft] = useState(false);
 
   const toggleMoon = () => {
     setMoonActive(!isMoonActive);
@@ -25,26 +25,17 @@ const Index = () => {
         <div className="mt-[27px] mr-[50px] ml-[16px] ">
           <div className="flex select-none" onClick={toggleListVisibility}>
             <svg
-              className={`transform transition-transform ${
-                isListVisible ? "" : "rotate-90"
-              }`}
-              width="24" height="24"
-              viewBox="0 0 24 24" fill="none"
-              xmlns="http://www.w3.org/2000/svg">
-              <path d="M8 10L12 14L16 10"
-                stroke="#323232" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+              className={`transform transition-transform ${isListVisible ? "" : "rotate-90"}`}
+              width="24" height="24" viewBox="0 0 24 24" fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path d="M8 10L12 14L16 10" stroke="#323232" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
             </svg>
             <p className="ml-auto text-right text-TM font-extra-bold">
               ورک اسپیس ها
             </p>
           </div>
-          <div
-            className={`transition-opacity ${
-              isListVisible ? "opacity-100" : "opacity-0"
-            } ease-in-out duration-300`}
-          >
-            <Searchbox />
-          </div>
+          {isListVisible && <Searchbox />}
         </div>
       </div>
       <div className=" h-[89px] m-[32px] relative">
@@ -52,45 +43,56 @@ const Index = () => {
           <div className="absolute top-0 right-0 flex items-center cursor-pointer space-x-XS">
             <p className="font-medium text-TM">نیلوفر موجودی</p>
             <svg
-              width="36" height="37"
-              viewBox="0 0 36 37" fill="none"
-              xmlns="http://www.w3.org/2000/svg">
+              width="36" height="37" viewBox="0 0 36 37" fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
               <rect width="36" height="37" rx="18" fill="#DBE4FF" />
               <path d="M16.5178 23H15.3833L11.0906 16.4273V23H9.96148V14.4691H11.0906L15.3942 21.0745V14.4691H16.5178V23ZM19.9671 14.4691L22.7543 21.4291L25.5471 14.4691H27.0034V23H25.8798V19.6782L25.9834 16.0891L23.1853 23H22.3234L19.5253 16.1109L19.6398 19.6782V23H18.5162V14.4691H19.9671Z"
-                fill="#4C6EF5" />
+                fill="#4C6EF5"
+              />
             </svg>
           </div>
         </Link>
         <div className="absolute bottom-0 flex items-center justify-between w-full">
           <div className="relative">
             <div
-              className={`cursor-pointer ml-[8px] h-[36px] w-[64px] flex flex-row items-center rounded-md ${
-                isMoonActive
-                  ? "bg-[#111827] transition-all duration-500"
-                  : "bg-gray-100 transition-all duration-500"
-              }`}
+              className={`cursor-pointer ml-[8px] h-[36px] w-[64px] flex flex-row items-center rounded-md ${isMoonActive ? "bg-[#111827] transition-all duration-500" : "bg-gray-100 transition-all duration-500"}`}
               onClick={toggleMoon}
             >
-              <SvgMoon/>
-              <Darkmode/>
+              <div
+                className={`w-[30px] h-[30px] absolute top-[3px] rounded-md ${isIoToLeft ? "bg-[#6b7280] transition-all duration-500" : "bg-white transition-all duration-500"}`}
+                style={{ left: isIoToLeft ? "11px" : "40px" }}
+                id="io"
+              ></div>
+              <div
+                style={{
+                  position: "relative",
+                  zIndex: 1,
+                  transition: "opacity 0.5s ease-in-out",
+                  opacity: isMoonActive ? 1 : 0,
+                }}
+              >
+                <SvgMoon />
+              </div>
+              <div
+                style={{
+                  position: "relative",
+                  zIndex: 1,
+                  transition: "opacity 0.5s ease-in-out",
+                  opacity: isMoonActive ? 0 : 1,
+                }}
+              >
+                <Darkmode />
+              </div>
             </div>
-            <div
-              className={`w-[30px] h-[30px] absolute top-[3px] ${
-                isIoToLeft
-                  ? " bg-[#6b7280] transition-all duration-500"
-                  : " bg-white transition-all duration-500"
-              } rounded-md shadow-md z-0 ease-in-out`}
-              style={{ left: isIoToLeft ? "11px" : "40px" }}
-              id="io"
-            ></div>
           </div>
           <Link to="/">
             <div className="flex items-center cursor-pointer">
               <p className="font-medium text-[#818181] text-TM">خروج</p>
               <svg
-                width="24" height="24"
-                viewBox="0 0 24 24" fill="none"
-                xmlns="http://www.w3.org/2000/svg">
+                width="24" height="24" viewBox="0 0 24 24" fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
                 <path fill-rule="evenodd" clip-rule="evenodd"
                   d="M6 3H18C19.105 3 20 3.895 20 5V19C20 20.105 19.105 21 18 21H6C4.895 21 4 20.105 4 19V5C4 3.895 4.895 3 6 3Z"
                   stroke="#818181" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
