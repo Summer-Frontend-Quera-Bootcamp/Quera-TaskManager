@@ -1,10 +1,13 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Modal, Button } from '@material-ui/core';
 import LinkIcon from '../iconComponents/LinkIcon';
 import DropDown from '../iconComponents/DropDown';
 import MultiplicationSign from '../iconComponents/MultiplicationSign';
 import {ReactComponent  as GmailIcon } from '../../GmailImages/gmailIcon.svg';
-const SimpleModal = () => {
+// interface ModelProps {
+//   handleClick?: () => void; 
+// }
+const Index= () => {
   const [open, setOpen] = useState(false);
 
   const handleOpen = () => {
@@ -26,7 +29,7 @@ const SimpleModal = () => {
         Open Modal
       </Button>
 
-      <Modal open={open} onClose={handleClose} dir='rtl'  >
+      <Modal open={open} onClose={handleClose} dir='rtl' >
         <div className=" flex  justify-center items-center h-screen ">
           <div className="modal-content p-[20px] border-gray-400 rounded-xl bg-white w-[470px] h-[348px]  text-center">
             <form action="">
@@ -61,7 +64,7 @@ const SimpleModal = () => {
           <GmailIcon className='w-[34px] h-[37px] rounded-full'/>
             <p className='text-right ml-[12px] mr-[7px] '>sararahimi@gmail.com</p>
             <div className='flex py-[5px]  px-[8px] border W-[117PX]  border-[#E9EBF0] rounded-md mr-auto items-center '>
-              <button className='ml-[10px] '>دسترسی کامل </button>
+              <button className='ml-[10px]'>دسترسی کامل </button>
               <DropDown />
             </div>
           </div>
@@ -74,4 +77,4 @@ const SimpleModal = () => {
   );
 };
 
-export default SimpleModal;
+export default Index;

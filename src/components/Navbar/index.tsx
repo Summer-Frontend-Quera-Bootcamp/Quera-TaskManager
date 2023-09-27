@@ -6,19 +6,27 @@ import Shareicon from "../iconComponents/Shareicon";
 import Navborder from "../NavBorder/buttonborder";
 import NavBoxSearch from "../NavbarSearch/navBoxSearch";
 import SvgFilter from "../iconComponents/filter";
+import ShareModal from "../ShareModal"
 
-const Index = () => {
+const Index:React.FC = () => {
   const [clickedIndex, setClickedIndex] = useState<number | null>(null);
+  const [openShareModal, setOpenShareModal] = useState(false);
   const handleClick = (index: number) =>
     clickedIndex === index ? null : setClickedIndex(index);
   const setStyle = (index: number) =>
     clickedIndex === index ? { color: "#208D8E", fontWeight: "bold" } : {};
+
+  const ShareModalHandler = () =>{
+    setOpenShareModal(openShareModal => !openShareModal)
+
+  }
   return (
     <div className=" h-[125px] fixed right-[356px] top-[41px] left-[50px]">
       <div className="text-right border-b-2 h-[64px] flex items-center justify-between">
         <div className="flex cursor-pointer">
-          <p className="font-bold text-TM">اشتراک‌گذاری</p>
+          <p className="font-bold text-TM" onClick={ShareModalHandler}>اشتراک‌گذاری</p>
           <Shareicon />
+          {openShareModal && <ShareModal/>}
         </div>
         <div className="flex flex-row-reverse items-center space-x-3">
           <h1 className="ml-3 text-HXS font-extra-bold">پروژه اول</h1>

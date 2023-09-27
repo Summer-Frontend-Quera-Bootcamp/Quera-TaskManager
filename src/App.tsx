@@ -9,8 +9,8 @@ import Forgotnewpass from './Pages/Forgotnewpass'
 import './App.css';
 import { BrowserRouter, Route, Routes, Navigate } from 'react-router-dom';
 import ShowInformation from './components/ShowInformation/Index';
-import ShareModal from './components/ShareModal'
-
+import ShareModal from './components/ShareModal';
+import PermissionsModal from './components/PermissionsModal';
 
 function App() {
   return (
@@ -26,7 +26,7 @@ function App() {
         <Route path="*" element={<Navigate to="404"/>} />
         {/* <Route path="/Profile1" element={<Profile1/>} /> */}
         <Route path="/ShowInformation" element={<ShowInformation/>} />
-        <Route path="/ShareModal" element={<ShareModal/>} />
+        <Route path="/PermissionsModal" element={<PermissionsModal/>} />
       </Routes>
     </BrowserRouter>
   );
