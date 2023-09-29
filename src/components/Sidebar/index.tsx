@@ -3,6 +3,7 @@ import Searchbox from "../Searchbox";
 import Darkmode from "../iconComponents/Darkmodeicon";
 import { Link } from "react-router-dom";
 import SvgMoon from "../iconComponents/moon";
+import CreateWorkspace from "../modal/createworkspace";
 
 const Index = () => {
   const [isListVisible, setListVisible] = useState(false);
@@ -36,6 +37,7 @@ const Index = () => {
             </p>
           </div>
           {isListVisible && <Searchbox />}
+          {isListVisible && <CreateWorkspace />}
         </div>
       </div>
       <div className=" h-[89px] m-[32px] relative">
