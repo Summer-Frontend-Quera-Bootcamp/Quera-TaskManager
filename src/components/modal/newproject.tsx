@@ -56,9 +56,9 @@ const NewProject = () => {
         onClose={closeModal}
         aria-labelledby="form-dialog-title"
       >
-        <Slide in={currentPage === 1} direction="left">
           <DialogContent>
             {currentPage === 1 && (
+              <Slide in={currentPage === 1} direction="left">
               <Stack className="w-[500px] h-[180px]" alignItems={"center"}>
                 <button onClick={closeModal} style={{ marginLeft: "auto" }}>
                   <CloseIcon></CloseIcon>
@@ -96,12 +96,10 @@ const NewProject = () => {
                   />
                 </div>
               </Stack>
+              </Slide>
             )}
-          </DialogContent>
-        </Slide>
-        <Slide in={currentPage === 2} direction="right">
-          <DialogContent>
             {currentPage === 2 && (
+               <Slide in={currentPage === 2} direction="right">
               <Stack className="w-[500px] h-[210px]">
                 <div style={{ display: "flex" }}>
                   <button
@@ -196,9 +194,9 @@ const NewProject = () => {
                   </Grid>
                 </Box>
               </Stack>
+              </Slide>
             )}
           </DialogContent>
-        </Slide>
         <DialogActions
           style={{
             justifyContent: "center",
