@@ -7,6 +7,7 @@ import {
   TextField,
   Paper,
   Grid,
+  Slide,
   Box,
 } from "@material-ui/core";
 import Stack from "@mui/material/Stack";
@@ -132,6 +133,7 @@ const CreateWorkspace = () => {
       >
         <DialogContent>
           {currentPage === 1 && (
+            <Slide in={currentPage === 1} direction="left">
             <Stack className="w-[500px] h-[190px]" alignItems={"center"}>
               <button onClick={closeModal} style={{ marginLeft: "auto" }}>
                 <CloseIcon></CloseIcon>
@@ -170,8 +172,10 @@ const CreateWorkspace = () => {
                 />
               </div>
             </Stack>
+            </Slide>
           )}
           {currentPage === 2 && (
+            <Slide in={currentPage === 2} direction="right">
             <Stack className="w-[501px] h-[190px]">
               <div style={{ display: "flex" }}>
                 <button
@@ -242,8 +246,10 @@ const CreateWorkspace = () => {
                 </Paper>
               </Grid>
             </Stack>
+            </Slide>
           )}
           {currentPage === 3 && (
+            <Slide in={currentPage === 3} direction="up">
             <Stack className="w-[501px] h-[272px]">
               <div style={{ display: "flex" }}>
                 <button
@@ -357,6 +363,7 @@ const CreateWorkspace = () => {
                 </Grid>
               </Box>
             </Stack>
+            </Slide>
           )}
         </DialogContent>
         <DialogActions
