@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import jalaliMoment from 'jalali-moment';
+// import jalaliMoment from 'jalali-moment';
 
 const PersianCalendar = () => {
   const persianMonths = [
@@ -22,11 +22,11 @@ const PersianCalendar = () => {
     }, 300);
   };
 
-  const formatDate = (date:Date) => {
-    const persianDate = jalaliMoment(date).format('jYYYY jM');
-    const translatedMonth = persianMonths[parseInt(persianDate.split(' ')[1]) - 1];
-    return `${translatedMonth} ${persianDate.split(' ')[0]}`;
-  };
+  // const formatDate = (date:Date) => {
+  //   const persianDate = jalaliMoment(date).format('jYYYY jM');
+  //   const translatedMonth = persianMonths[parseInt(persianDate.split(' ')[1]) - 1];
+  //   return `${translatedMonth} ${persianDate.split(' ')[0]}`;
+  // };
 
   useEffect(() => {
     setTimeout(() => {
@@ -47,7 +47,7 @@ const PersianCalendar = () => {
           <path d="M8 10L12 14L16 10" stroke="#323232" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
         </svg>
       </button>
-      <p className="text-stone-900 text-xs font-normal mt-2 mb-1 select-none">{formatDate(currentDate)}</p>
+      {/* <p className="text-stone-900 text-xs font-normal mt-2 mb-1 select-none">{formatDate(currentDate)}</p> */}
     </div>
   );
 };
