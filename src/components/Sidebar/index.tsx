@@ -1,11 +1,17 @@
+// ========== import packages ==========
+
 import { useState } from "react";
+import { Link } from "react-router-dom";
+
+// ========== import components here ==========
+
 import Searchbox from "../Searchbox";
 import Darkmode from "../iconComponents/Darkmodeicon";
-import { Link } from "react-router-dom";
 import SvgMoon from "../iconComponents/moon";
 import CreateWorkspace from "../modal/createworkspace";
 import NewProject from "../modal/newproject";
 import Slide from "@material-ui/core/Slide";
+
 
 const Index = () => {
   const [isListVisible, setListVisible] = useState(false);

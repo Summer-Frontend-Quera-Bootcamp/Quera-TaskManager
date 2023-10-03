@@ -1,5 +1,8 @@
+// ========== import needed packages ==========
 import { Link } from 'react-router-dom';
 import { useLocation } from 'react-router-dom';
+
+
 interface IndexProps {
   Text: string;
   buttonText: string;

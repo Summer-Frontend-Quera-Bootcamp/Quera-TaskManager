@@ -1,4 +1,7 @@
+// ========== import needed packages ==========
 import { useState } from "react";
+
+// ========== import components here ==========
 import SvgCol from "../iconComponents/col";
 import SvgCelender from "../iconComponents/celender";
 import SvgDoList from "../iconComponents/dolist";

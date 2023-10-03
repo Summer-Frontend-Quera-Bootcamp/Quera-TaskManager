@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+// ========== import needed packages ==========
+import { useState } from "react";
 import {
   Dialog,
   DialogActions,
@@ -14,6 +15,8 @@ import Stack from "@mui/material/Stack";
 import Avatar from "@mui/material/Avatar";
 import CloseIcon from "@mui/icons-material/Close";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
+
+
 const NewProject = () => {
   const [open, setOpen] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);

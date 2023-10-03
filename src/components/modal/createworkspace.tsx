@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+// ========== import needed packages ==========
+import { useState } from "react";
 import {
   Dialog,
   DialogActions,
@@ -18,6 +19,7 @@ import SquareRoundedIcon from "@mui/icons-material/SquareRounded";
 import Avatar from "@mui/material/Avatar";
 import CloseIcon from "@mui/icons-material/Close";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
+
 
 const CreateWorkspace = () => {
   const [open, setOpen] = useState(false);

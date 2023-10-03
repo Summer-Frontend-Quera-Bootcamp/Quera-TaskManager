@@ -1,5 +1,7 @@
-import React from 'react';
+// ========== import needed packages ==========
 import { Link } from 'react-router-dom';
+
+
 const Index:React.FC = () => {
     let greetin = 'به کوئرا تسک منیجر خوش برگشتی '
     let smile = ':)';

@@ -8,7 +8,6 @@ import Forgot from './Pages/Authentication/Forgot'
 import Linksend from './Pages/Authentication/Linksend'
 import Forgotnewpass from './Pages/Authentication/Forgotnewpass'
 import Main from './Pages/Main/Index'
-// import Profile1 from './components/Profile1/index'
 import ShowInformation from './components/ShowInformation/Index';
 import NotFound from './Pages/NotFound/Index'
 
@@ -26,7 +25,6 @@ function App() {
         <Route path="/linksend" element={<Linksend/>} />
         <Route path="/Forgotnewpass" element={<Forgotnewpass/>} />
         <Route path="/main" element={<Main/>} />
-        {/* <Route path="/Profile1" element={<Profile1/>} /> */}
         <Route path="/ShowInformation" element={<ShowInformation/>} />
         <Route path="/404" element={<NotFound/>} />
         <Route path="*" element={<Navigate to="404"/>} />

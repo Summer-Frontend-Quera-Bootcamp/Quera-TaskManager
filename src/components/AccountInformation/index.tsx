@@ -1,4 +1,3 @@
-import { Link } from 'react-router-dom';
 const Index: React.FC = () => {
   return (
     <div  className="  mt-[170px] mr-[58px] w-[354px]"  dir="rtl" >

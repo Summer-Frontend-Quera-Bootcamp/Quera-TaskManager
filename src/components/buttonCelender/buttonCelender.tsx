@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from 'react';
+// ========== import needed packages ==========
+import {useState, useEffect } from 'react';
 import jalaliMoment from 'jalali-moment';
 
 const PersianCalendar = () => {

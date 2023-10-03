@@ -1,10 +1,13 @@
-// import { getValue } from "@testing-library/user-event/dist/utils";
+// ========== import packages ==========
+
 import { useState } from "react";
 import { Link } from 'react-router-dom';
+
+
 const Index:React.FC = () => {
     let test = 'قوانین و مقررات را می‌پذیرم'
     let dot = '.';
-    //---------States used for email validation--------------------------------
+  //---------States used for email validation--------------------------------
     const [email, setEmail] = useState('');
     const [isValid, setIsValid] = useState(true);    
     const [isEmailFocused, setIsEmailFocused] = useState(false);

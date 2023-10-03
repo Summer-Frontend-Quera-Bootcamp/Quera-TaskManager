@@ -1,10 +1,14 @@
+// ========== import needed packages ==========
+import React, { useState } from 'react';
+import { Link } from 'react-router-dom'
+
+// ========== import components here ==========
 import AccountInformation from '../AccountInformation';
 import Rightflag from '../iconComponents/right-flag';
 import Accountinfo from '../iconComponents/Account-info';
 import Settingsicon from '../iconComponents/Settingsicon';
 import Personalinfo from '../iconComponents/Personal-info';
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom'
+
 
 const Index: React.FC = () => {
   const [profile, setProfile] = useState("PersonInformation"); // Default to "PersonInformation"
