@@ -1,5 +1,8 @@
-import Header from '../../components/Header'
+// ========== import needed packages ==========
 import { Link } from 'react-router-dom'
+
+// ========== import components ==========
+import Header from '../../../components/Header'
 
 const index = () => {
   return (

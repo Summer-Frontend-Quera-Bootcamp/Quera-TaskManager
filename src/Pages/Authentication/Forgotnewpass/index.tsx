@@ -1,5 +1,9 @@
+// ========== import needed packages ==========
 import { Link } from 'react-router-dom'
-import Header from '../../components/Header'
+
+// ========== import components ==========
+import Header from '../../../components/Header'
+
 const index = () => {
   return (
     <div className="h-screen overflow-hidden">
@@ -12,7 +16,7 @@ const index = () => {
           <div  className="text-right mx-[24px] mt-[24px]">
             <label htmlFor="password" className="font-normal text-TS" >رمز عبور جدید را وارد کنید</label>
             <br />
-            <input  
+            <input
             type="password" 
             id="password"  
             className="  border border-solid border-1 border-gray-400 rounded-md w-[592px] h-[40px] focus:outline-none" />

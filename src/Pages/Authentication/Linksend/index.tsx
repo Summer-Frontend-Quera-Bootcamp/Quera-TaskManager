@@ -1,4 +1,5 @@
-import Header from '../../components/Header'
+// ========== import components ==========
+import Header from '../../../components/Header'
 
 const index = () => {
   return (
@@ -17,3 +18,4 @@ const index = () => {
 }
 
 export default index
+
