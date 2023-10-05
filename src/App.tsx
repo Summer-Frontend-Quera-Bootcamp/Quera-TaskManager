@@ -9,6 +9,7 @@ import Forgotnewpass from './Pages/Forgotnewpass'
 import './App.css';
 import { BrowserRouter, Route, Routes, Navigate } from 'react-router-dom';
 import ShowInformation from './components/ShowInformation/Index';
+import Personalinfo from './Pages/Personalinfo';
 
 
 function App() {
@@ -25,6 +26,7 @@ function App() {
         <Route path="*" element={<Navigate to="404"/>} />
         {/* <Route path="/Profile1" element={<Profile1/>} /> */}
         <Route path="/ShowInformation" element={<ShowInformation/>} />
+        <Route path="/Personalinfo" element={<Personalinfo/>} />
       </Routes>
     </BrowserRouter>
   );
