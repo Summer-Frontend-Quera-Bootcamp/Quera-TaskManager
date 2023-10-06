@@ -10,6 +10,7 @@ import Navborder from "../NavBorder/buttonborder";
 import NavBoxSearch from "../NavbarSearch/navBoxSearch";
 import SvgFilter from "../iconComponents/filter";
 import PersianCalendar from "../buttonCelender/buttonCelender";
+import Filter from "../modal/filter";
 
 const Index = () => {
   const [clickedIndex, setClickedIndex] = useState<number | null>(null);
@@ -17,6 +18,13 @@ const Index = () => {
     clickedIndex === index ? null : setClickedIndex(index);
   const setStyle = (index: number) =>
     clickedIndex === index ? { color: "#208D8E", fontWeight: "bold" } : {};
+    const [openShareModal, setOpenShareModal] = useState(false);
+
+    const ShareModalHandler = () =>{
+      setOpenShareModal( !openShareModal)
+  
+    }
+
   return (
     <div className=" h-[125px] fixed right-[356px] top-[41px] left-[50px]">
       <div className="text-right border-b-2 h-[64px] flex items-center justify-between">
@@ -201,11 +209,16 @@ const Index = () => {
                     />
                   </svg>
                 </div>
-                <div className="flex flex-row cursor-pointer">
-                  <p className="mr-[6px] text-stone-900 text-xs font-normal mb-[20px] mt-[22px]">
-                    فیلترها
-                  </p>
-                  <SvgFilter />
+                <div>
+                  <div className="flex flex-row cursor-pointer">
+                    <p className="mr-[6px] text-stone-900 text-xs font-normal mb-[20px] mt-[22px] select-none" onClick={ShareModalHandler}>
+                      فیلترها
+                    </p>
+
+                      <SvgFilter />
+
+                  </div>
+                  {openShareModal && <Filter />}
                 </div>
                 <div className="w-[155px] h-[29px] px-3 py-1 bg-blue-100 rounded justify-center items-center inline-flex mt-[16px] mr-[16px]">
                   <div className="text-right text-blue-500 text-xs font-normal  capitalize">
