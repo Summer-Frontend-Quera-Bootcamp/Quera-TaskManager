@@ -11,6 +11,7 @@ import NavBoxSearch from "../NavbarSearch/navBoxSearch";
 import SvgFilter from "../iconComponents/filter";
 import PersianCalendar from "../buttonCelender/buttonCelender";
 import Filter from "../modal/filter";
+import List from "./list";
 
 const Index = () => {
   const [clickedIndex, setClickedIndex] = useState<number | null>(null);
@@ -230,6 +231,7 @@ const Index = () => {
           </div>
         )}
       </div>
+     <List/>
     </div>
   );
 };
