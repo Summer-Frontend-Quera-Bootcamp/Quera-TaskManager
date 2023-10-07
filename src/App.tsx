@@ -9,7 +9,7 @@ import Forgotnewpass from './Pages/Forgotnewpass'
 import './App.css';
 import { BrowserRouter, Route, Routes, Navigate } from 'react-router-dom';
 import ShowInformation from './components/ShowInformation/Index';
-import Personalinfo from './Pages/Personalinfo';
+import Personalinfo from './components/Personalinfo/index';
 
 
 function App() {
