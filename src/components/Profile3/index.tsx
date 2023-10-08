@@ -24,7 +24,7 @@ import SvgMoon from "../iconComponents/moon";
       }}
     >
       <div>
-        <Sidebar />
+        <Sidebar/>
       </div>
       <div className="w-[354px] h-[270px] absolute left-[580px] top-[170px] flex flex-col justify-start items-end gap-8 ">
         <p className="text-right text-[#1E1E1E] text-[31px] font-IRANYekan font-bold break-words">

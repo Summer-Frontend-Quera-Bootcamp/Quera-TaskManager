@@ -5,7 +5,7 @@ import Settingsicon from '../iconComponents/Settingsicon';
 import Personalinfo from '../iconComponents/Personal-info';
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom'
-
+import Profile3 from '../Profile3/index'
 const Index: React.FC = () => {
   const [profile, setProfile] = useState("PersonInformation"); // Default to "PersonInformation"
 
@@ -49,7 +49,7 @@ const Index: React.FC = () => {
       <div>
         {profile === "PersonInformation" && <h1 className=''>sina</h1>}
         {profile === "AccountInformation" && <AccountInformation />}
-        {profile === "setting" && <h1 className=''>zahra</h1>}
+        {profile === "setting" && <h1 className=''><Profile3/></h1>}
       </div>
     </div>
   )
