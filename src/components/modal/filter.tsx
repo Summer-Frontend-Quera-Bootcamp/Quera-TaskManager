@@ -31,7 +31,7 @@ const Filter = () => {
     <>
       <Dialog open={open} onClose={closeModal}>
         <DialogContent>
-          <Box className="w-[550px] max-h-[306px]">
+          <Box className="w-[550px] min-h-[256px]">
             <div className="flex flex-row-reverse items-center justify-between">
               <Typography
                 style={{
