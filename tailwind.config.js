@@ -13,6 +13,7 @@ module.exports = {
       'extra-bold': '800',
       black: '900',
     },
+    
     letterSpacing: {
       XL: '40px',
       L: '32px',
