@@ -9,7 +9,6 @@ import Searchbox from "../Searchbox";
 import Darkmode from "../iconComponents/Darkmodeicon";
 import SvgMoon from "../iconComponents/moon";
 import { CreateWorkspace } from "../modal/createworkspace";
-import { NewProject } from "../modal/newproject";
 import Slide from "@material-ui/core/Slide";
 import { WorkSpaceItems } from "../modal/workspaceItems";
 
@@ -22,20 +21,6 @@ const Index = () => {
   const [workSpaceList, setWorkSpaceList] = useState<
     { id: number; title: string; color: string }[]
   >([]);
-  const [projectList, setProjectList] = useState<
-    { id: number; title: string }[]
-  >([]);
-  const handleCreateProject = (formData: any) => {
-    const { title } = formData;
-    if (title.trim() !== "") {
-      const newProjectItem = {
-        id: projectList.length + 1,
-        title: title,
-      }
-
-      setProjectList([...projectList, newProjectItem]);
-    }
-  };
 
   const handleCreateWorkspace = (formData: any) => {
     const { title, color } = formData;
@@ -96,7 +81,6 @@ const Index = () => {
                       title={workspace.title}
                       color={workspace.color} 
                   />
-                  <NewProject onSubmit={handleCreateProject}/>
                   </>
                 ))}
               </div>
