@@ -1,136 +1,206 @@
-// import { getValue } from "@testing-library/user-event/dist/utils";
 import { useState } from "react";
-import { Link } from 'react-router-dom';
-const Index:React.FC = () => {
-    let test = 'قوانین و مقررات را می‌پذیرم'
-    let dot = '.';
-    //---------States used for email validation--------------------------------
-    const [email, setEmail] = useState('');
-    const [isValid, setIsValid] = useState(true);    
-    const [isEmailFocused, setIsEmailFocused] = useState(false);
+import { useNavigate } from "react-router-dom";
+import axios from "axios";
+const Index: React.FC = () => {
+  let test = "قوانین و مقررات را می‌پذیرم";
+  let dot = ".";
+
+  const navigate = useNavigate();
+  //---------States used for email validation--------------------------------
+  const [email, setEmail] = useState("");
+  const [isValid, setIsValid] = useState(false);
+  const [isEmailFocused, setIsEmailFocused] = useState(false);
 
   //---------States used for password validation--------------------------------
-    const [password, setPassword] = useState('');
-    const [isValidPassword, setIsValidPassword] = useState(false);
-    const [isPasswordFocused, setPasswordFocused] = useState(false);
+  const [password, setPassword] = useState("");
+  const [isValidPassword, setIsValidPassword] = useState(false);
+  const [isPasswordFocused, setPasswordFocused] = useState(false);
 
   //---------States used for name validation--------------------------------
-    const [name, setName] = useState('');
-    const [isValidName, setIsValidName] = useState(true);
-    const [isNameFocused, setIsNamedFocused] = useState(false);
+  const [username, setName] = useState("");
+  const [isValidName, setIsValidName] = useState(false);
+  const [isNameFocused, setIsNamedFocused] = useState(false);
+  //---------States used for accepted terms --------------------------------
+  const [isAcceptTerms, setIsAcceptTerms] = useState(false);
 
-  //---------------------------------------------------------------------------  
+  //---------------------------------------------------------------------------
   //---------functions used for email validation--------------------------------
-    const validateEmail = (email: string): boolean => {
-      const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-      return regex.test(email);
-    };
-    const handleEmailChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-      const newEmail = event.target.value;
-      setEmail(newEmail);
-      setIsValid(validateEmail(newEmail));
-    
-    };
-    const handleEmailFocused = () => {
-      setIsEmailFocused(true);
-    };
+  const validateEmail = (email: string): boolean => {
+    const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return regex.test(email);
+  };
+  const handleEmailChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const newEmail = event.target.value;
+    setEmail(newEmail);
+    setIsValid(validateEmail(newEmail));
+  };
+  const handleEmailFocused = () => {
+    setIsEmailFocused(true);
+  };
 
-     //---------functions used for password validation--------------------------------
-    const validatePassword = (password: string): boolean => {
-      const regex = /^(?=.*\d)(?=.*[a-z]).{8,}$/;
-      return regex.test(password);
-    };
-    const handlePasswordChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-      const newPassword = event.target.value;
-      setPassword(newPassword);
-      setIsValidPassword(validatePassword(newPassword));
-    };
-    const handlePasswordFocused = () => {
-      setPasswordFocused(true);
-    };
+  //---------functions used for password validation--------------------------------
+  const validatePassword = (password: string): boolean => {
+    const regex = /^(?=.*\d)(?=.*[a-z]).{8,}$/;
+    return regex.test(password);
+  };
+  const handlePasswordChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const newPassword = event.target.value;
+    setPassword(newPassword);
+    setIsValidPassword(validatePassword(newPassword));
+  };
+  const handlePasswordFocused = () => {
+    setPasswordFocused(true);
+  };
 
   //---------functions used for name validation--------------------------------
-    const validateName = (name: string): boolean => {
-      return name.trim() !== '';
-    };
-    const handleNameFocused = () => {
-      setIsNamedFocused(true);
-    };
-    const handleNameChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-      const newName = event.target.value;
-      setName(newName);
-      setIsValidName(validateName(newName));
-    };
+  const validateName = (name: string): boolean => {
+    return name.trim() !== "";
+  };
+  const handleNameFocused = () => {
+    setIsNamedFocused(true);
+  };
+  const handleNameChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const newName = event.target.value;
+    setName(newName);
+    setIsValidName(validateName(newName));
+  };
 
-  //---------------------------------------------------------------------------  
+  //---------------------------------------------------------------------------
   //---------functions used for button--------------------------------
-    const btnHandler = (event: React.MouseEvent<HTMLButtonElement>) =>{
-      event.preventDefault();
+  const btnHandler = async (event: React.MouseEvent<HTMLButtonElement>) => {
+    event.preventDefault();
+    console.log(
+      "eamil => ",
+      email,
+      isValid,
+      "password => ",
+      password,
+      isValidPassword,
+      "name => ",
+      username,
+      isValidName
+    );
+
+    if (isValid && isValidPassword && isValidName) {
+      try {
+        const data: any = await axios.post(
+          "https://quera.iran.liara.run/accounts/",
+          {
+            email,
+            password,
+            username,
+          }
+        );
+        console.log(data);
+
+        if (data.status === 201) {
+          navigate('/main')
+        }
+      } catch (error) {
+        console.log(error);
+      }
     }
+  };
 
-//---------------------------------------------------------------------------  
-    return (
-      <div className="flex flex-col items-center my-auto mt-[149px]" dir="rtl" >
+  //---------------------------------------------------------------------------
+  return (
+    <div className="flex flex-col items-center my-auto mt-[149px]" dir="rtl">
+      <form
+        className="needs-validation flex flex-col border border-whith bg-white rounded-lg  h-[507px] shadow-md z-[1]"
+        noValidate
+      >
+        <h1 className="sm:text-HL text-HS text-center pt-[24px] mx-[65.5px]">
+          {" "}
+          ثبت‌نام در کوئرا تسک منیجر{" "}
+        </h1>
 
-        <form className ="needs-validation flex flex-col border border-whith bg-white rounded-lg  h-[507px] shadow-md z-[1]" noValidate>
-          <h1 className="sm:text-HL text-HS text-center pt-[24px] mx-[65.5px]"> ثبت‌نام در کوئرا تسک منیجر </h1>
-
-          <div className="text-right mx-[24px] mt-[24px]" >
-            <label htmlFor="fullName" className="font-normal text-TS">نام کامل</label>
-            <br />
-            <input 
-            onFocus={handleNameFocused} 
-            onChange={handleNameChange}  
-            value={name} 
-            type="type" 
-            id="fullName" 
+        <div className="text-right mx-[24px] mt-[24px]">
+          <label htmlFor="fullName" className="font-normal text-TS">
+            نام کامل
+          </label>
+          <br />
+          <input
+            onFocus={handleNameFocused}
+            onChange={handleNameChange}
+            value={username}
+            type="type"
+            id="fullName"
             className={`border border-gray-400 rounded-md w-full h-[40px] focus:outline-none
-            ${isNameFocused  && !isValidName ? 'bg-red-50 border border-red-500' : ''}
-            `} />
-          </div>
+            ${
+              isNameFocused && !isValidName
+                ? "bg-red-50 border border-red-500"
+                : ""
+            }
+            `}
+          />
+        </div>
 
-          <div className="text-right mx-[24px] mt-[24px]" >
-            <label htmlFor="email" className="font-normal text-TS">ایمیل</label>
-            <br />
-            <input 
-            onFocus={handleEmailFocused}  
-            onChange={handleEmailChange} 
-            type="email" 
-            id="email" 
+        <div className="text-right mx-[24px] mt-[24px]">
+          <label htmlFor="email" className="font-normal text-TS">
+            ایمیل
+          </label>
+          <br />
+          <input
+            onFocus={handleEmailFocused}
+            onChange={handleEmailChange}
+            type="email"
+            id="email"
             className={`border border-gray-400 rounded-md w-full h-[40px] focus:outline-none 
-            ${isEmailFocused  && !isValid ? 'bg-red-50 border border-red-500' : ''}
-            `} />
-          </div>
+            ${
+              isEmailFocused && !isValid
+                ? "bg-red-50 border border-red-500"
+                : ""
+            }
+            `}
+          />
+        </div>
 
-          <div  className="text-right mx-[24px] mt-[24px]">
-            <label  htmlFor="password" className="font-normal text-TS " >رمز عبور</label>
-            <br />
-            <input  
-            onChange={handlePasswordChange} 
-            onFocus={handlePasswordFocused} 
-            type="password" 
-            id="password" 
+        <div className="text-right mx-[24px] mt-[24px]">
+          <label htmlFor="password" className="font-normal text-TS ">
+            رمز عبور
+          </label>
+          <br />
+          <input
+            onChange={handlePasswordChange}
+            onFocus={handlePasswordFocused}
+            type="password"
+            id="password"
             className={`border border-solid border-1 border-gray-400 rounded-md w-full h-[40px] focus:outline-none 
-            ${isPasswordFocused  && !isValidPassword ? 'bg-red-50 border border-red-500' : ''}
-            `}/>
-          </div>
+            ${
+              isPasswordFocused && !isValidPassword
+                ? "bg-red-50 border border-red-500"
+                : ""
+            }
+            `}
+          />
+        </div>
 
-          <div dir='rtl' className=" flex items-center text-right mx-[24px]  mt-[20px] ">
-            <input 
-            type="checkbox"  
-            id="terms" 
-            className=" hover:text-blue  w-[20px] h-[20px] text-center " 
-            />
-            <label htmlFor="terms" className="text-TS mr-[8px]">{test}{dot}</label>
-          </div>
+        <div
+          dir="rtl"
+          className=" flex items-center text-right mx-[24px]  mt-[20px] "
+        >
+          <input
+            type="checkbox"
+            onChange={(e) => setIsAcceptTerms(e.target.checked)}
+            id="terms"
+            className=" hover:text-blue  w-[20px] h-[20px] text-center "
+          />
+          <label htmlFor="terms" className="text-TS mr-[8px]">
+            {test}
+            {dot}
+          </label>
+        </div>
 
-          <Link to="/main" className="mx-[24px] mt-[32px] mb-[24px] p-[10px]  bg-[#208D8E] rounded-md text-[#FFFFFF] hover:bg-teal-700 text-center"><button onClick={btnHandler}>ثبت‌نام</button></Link>
+        <button
+          disabled={!isAcceptTerms}
+          className="mx-[24px] mt-[32px] mb-[24px] p-[10px]  bg-[#208D8E] rounded-md text-[#FFFFFF] hover:bg-teal-700 text-center"
+          onClick={btnHandler}
+        >
+          ثبت‌نام
+        </button>
       </form>
-    
     </div>
-      
-      );
-  }
-  
-  export default Index
-  
+  );
+};
+
+export default Index;
