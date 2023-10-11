@@ -8,23 +8,31 @@ import { Link } from "react-router-dom";
 import Searchbox from "../Searchbox";
 import Darkmode from "../iconComponents/Darkmodeicon";
 import SvgMoon from "../iconComponents/moon";
-import CreateWorkspace from "../modal/createworkspace";
-import NewProject from "../modal/newproject";
+import { CreateWorkspace } from "../modal/createworkspace";
 import Slide from "@material-ui/core/Slide";
-
+import { WorkSpaceItems } from "../modal/workspaceItems";
 
 const Index = () => {
   const [isListVisible, setListVisible] = useState(false);
   const [isMoonActive, setMoonActive] = useState(false);
   const [isIoToLeft, setIoToLeft] = useState(false);
 
-  const [clickedIndex, setClickedIndex] = useState<number | null>(null);
-  const handleClick = (index: number) =>
-    clickedIndex === index ? null : setClickedIndex(index);
-  const setStyle = (index: number) =>
-    clickedIndex === index ? { backgroundColor: "#E9F9FF" } : {};
-
   const toggleListVisibility = () => setListVisible(!isListVisible);
+  const [workSpaceList, setWorkSpaceList] = useState<
+    { id: number; title: string; color: string }[]
+  >([]);
+
+  const handleCreateWorkspace = (formData: any) => {
+    const { title, color } = formData;
+    if (title.trim() !== "") {
+      const newWorkspaceItem = {
+        id: workSpaceList.length + 1,
+        title: title,
+        color: color,
+      };
+      setWorkSpaceList([...workSpaceList, newWorkspaceItem]);
+    }
+  };
 
   const toggleMoon = () => {
     setMoonActive(!isMoonActive);
@@ -65,44 +73,16 @@ const Index = () => {
             <Slide in={true} direction="left" timeout={500}>
               <div>
                 <Searchbox />
-                <CreateWorkspace />
-                <div className="flex flex-col mt-[16px] gap-4">
-                  <div className="w-[274px] h-9 rounded text-right text-stone-900 font-medium flex flex-row-reverse items-center gap-2">
-                    <div className="w-5 h-5 bg-green-500 rounded "></div>
-                    درس مدیریت پروژه
-                  </div>
-                  <div className="flex flex-col gap-3">
-                    <div className="w-[274px] h-9 rounded text-right text-stone-900 font-medium flex flex-row-reverse items-center gap-2">
-                      <div className="w-5 h-5 bg-yellow-500 rounded "></div>
-                      کار های شخصی
-                    </div>
-                    <div className="w-[246px] rounded justify-center  gap-4 flex flex-col">
-                      <div
-                        className=" pr-[6px] h-[36px] rounded flex flex-row-reverse items-center"
-                        onClick={() => handleClick(1)}
-                        style={setStyle(1)}
-                      >
-                        پروژه اول
-                      </div>
-                      <div
-                        className=" pr-[6px] h-[36px] rounded flex flex-row-reverse items-center"
-                        onClick={() => handleClick(2)}
-                        style={setStyle(2)}
-                      >
-                        پروژه دوم
-                      </div>
-                    </div>
-                    <div className="w-[274px] h-9 rounded text-right text-stone-900 font-medium flex flex-row-reverse items-center gap-2">
-                      <div className="w-5 h-5 bg-red-500 rounded "></div>
-                      درس کامپایلر
-                    </div>
-                    <NewProject />
-                    <div className="w-[274px] h-9 rounded text-right text-stone-900 font-medium flex flex-row-reverse items-center gap-2">
-                      <div className="w-5 h-5 bg-blue-500 rounded "></div>
-                      درس طراحی الگوریتم
-                    </div>
-                  </div>
-                </div>
+                <CreateWorkspace onSubmit={handleCreateWorkspace} />
+                {workSpaceList.map((workspace) => (
+                  <>
+                  <WorkSpaceItems
+                      key={workspace.id}
+                      title={workspace.title}
+                      color={workspace.color} 
+                  />
+                  </>
+                ))}
               </div>
             </Slide>
           )}
