@@ -23,7 +23,7 @@ const Index = () => {
         dayCellContent={(props) => {
           return (
             <div className="w-full h-full group">
-              <div className="flex justify-between">
+              <div className="flex ">
                 <button className="bg-[#208d8e] rounded-[3px] opacity-0 group-hover:opacity-100">
                   <Plussquare/>
                 </button>
