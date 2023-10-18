@@ -1,139 +1,175 @@
-// ========== import packages ==========
+import React from "react";
+import { useForm, FieldValues } from "react-hook-form";
+import { yupResolver } from "@hookform/resolvers/yup";
+import * as yup from "yup";
+import { registerUser } from "../../service/auth";
 
-import { useState } from "react";
-import { Link } from 'react-router-dom';
+type UserSubmitForm = {
+  username: string;
+  email: string;
+  password: string;
+  acceptTerms?: boolean;
+};
 
+const Index: React.FC = () => {
+  const ValidationSchema = yup.object().shape({
+    username: yup
+      .string()
+      .required("وارد کردن نام الزامی می‌باشد!")
+      .min(4, "حداقل طول نام ۴ کارکتر می‌باشد!")
+      .max(150, "حداکثر طول نام ۲۰ کارکتر می‌باشد!")
+      .matches(
+        /^(?!.*[.+_@-]{2})[a-zA-Z0-9.+_@-]+[a-zA-Z0-9]$/i,
+        "- فرمت نام نامعتبر است!"
+      ),
 
-const Index:React.FC = () => {
-    let test = 'قوانین و مقررات را می‌پذیرم'
-    let dot = '.';
-  //---------States used for email validation--------------------------------
-    const [email, setEmail] = useState('');
-    const [isValid, setIsValid] = useState(true);    
-    const [isEmailFocused, setIsEmailFocused] = useState(false);
+    email: yup
+      .string()
+      .email(" ایمیل صحیح نیست!")
+      .required("وارد کردن ایمیل الزامی است!")
+      .matches(
+        /^(?!.*[.-]{2})[A-Z0-9._-]+[A-Z0-9]+@[A-Z.-]+\.[A-Z]{2,}$/i,
+        "فرمت ایمیل نامعتبر است!"
+      ),
+    password: yup
+      .string()
+      .required("وارد کردن رمز عبور الزامی می‌باشد!")
+      .min(6, "حداقل طول رمز عبور ۶ کارکتر می‌باشد!")
+      .max(40, "حداکثر طول رمز عبور ۴۰ کارکتر می‌باشد!"),
+    acceptTerms: yup
+      .bool()
+      .oneOf([true], "برای ثبت نام پذیرفتن قوانین الزامی است!"),
+  });
 
-  //---------States used for password validation--------------------------------
-    const [password, setPassword] = useState('');
-    const [isValidPassword, setIsValidPassword] = useState(false);
-    const [isPasswordFocused, setPasswordFocused] = useState(false);
+  const {
+    register,
+    handleSubmit,
+    formState: { errors, touchedFields },
+  } = useForm<UserSubmitForm>({
+    resolver: yupResolver(ValidationSchema),
+    mode: "onChange",
+  });
 
-  //---------States used for name validation--------------------------------
-    const [name, setName] = useState('');
-    const [isValidName, setIsValidName] = useState(true);
-    const [isNameFocused, setIsNamedFocused] = useState(false);
+  const onSubmit = (data: UserSubmitForm) => {
+    registerUser(data).then((res) => {
+      console.log("user", res);
+    });
+  };
 
-  //---------------------------------------------------------------------------  
-  //---------functions used for email validation--------------------------------
-    const validateEmail = (email: string): boolean => {
-      const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-      return regex.test(email);
-    };
-    const handleEmailChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-      const newEmail = event.target.value;
-      setEmail(newEmail);
-      setIsValid(validateEmail(newEmail));
-    
-    };
-    const handleEmailFocused = () => {
-      setIsEmailFocused(true);
-    };
+  return (
+    <div className="flex flex-col items-center my-auto" dir="rtl">
+      <form
+        className="needs-validation flex flex-col border border-whith bg-white rounded-lg max-h-[597px] shadow-md z-[1] mb-[50px]"
+        onSubmit={handleSubmit(onSubmit)}
+      >
+        <h1 className="sm:text-HL text-HS text-center pt-[24px] mx-[65.5px]">
+          {" "}
+          ثبت‌نام در کوئرا تسک منیجر{" "}
+        </h1>
 
-     //---------functions used for password validation--------------------------------
-    const validatePassword = (password: string): boolean => {
-      const regex = /^(?=.*\d)(?=.*[a-z]).{8,}$/;
-      return regex.test(password);
-    };
-    const handlePasswordChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-      const newPassword = event.target.value;
-      setPassword(newPassword);
-      setIsValidPassword(validatePassword(newPassword));
-    };
-    const handlePasswordFocused = () => {
-      setPasswordFocused(true);
-    };
+        <div className="text-right mx-[24px] mt-[24px]">
+          <label htmlFor="username" className="font-normal text-TS">
+            نام کامل
+          </label>
+          <br />
+          <input
+            type="text"
+            autoComplete="off"
+            {...register("username")}
+            className={`border border-gray-400 pr-3 rounded-md w-full h-[40px] focus:outline-none
+            ${
+              touchedFields.username && errors.username
+                ? "bg-red-50 border border-red-500"
+                : ""
+            }
+            `}
+          />
+          {errors.username && (
+            <div className="text-xs mt-2 mr-2 text-red-600">
+              {errors.username?.message}
+              <p>- نام باید با حروف و اعداد انگلیسی باشد!</p>
+              <p>
+                 - شما می توانید در نام کاربری خود فقط از علامت های  (. ـ - + @)
+            استفاده کنید!
+              </p>
+            </div>
+          )}
+        </div>
 
-  //---------functions used for name validation--------------------------------
-    const validateName = (name: string): boolean => {
-      return name.trim() !== '';
-    };
-    const handleNameFocused = () => {
-      setIsNamedFocused(true);
-    };
-    const handleNameChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-      const newName = event.target.value;
-      setName(newName);
-      setIsValidName(validateName(newName));
-    };
-
-  //---------------------------------------------------------------------------  
-  //---------functions used for button--------------------------------
-    const btnHandler = (event: React.MouseEvent<HTMLButtonElement>) =>{
-      event.preventDefault();
-    }
-
-//---------------------------------------------------------------------------  
-    return (
-      <div className="flex flex-col items-center my-auto mt-[149px]" dir="rtl" >
-
-        <form className ="needs-validation flex flex-col border border-whith bg-white rounded-lg  h-[507px] shadow-md z-[1]" noValidate>
-          <h1 className="sm:text-HL text-HS text-center pt-[24px] mx-[65.5px]"> ثبت‌نام در کوئرا تسک منیجر </h1>
-
-          <div className="text-right mx-[24px] mt-[24px]" >
-            <label htmlFor="fullName" className="font-normal text-TS">نام کامل</label>
-            <br />
-            <input 
-            onFocus={handleNameFocused} 
-            onChange={handleNameChange}  
-            value={name} 
-            type="type" 
-            id="fullName" 
-            className={`border border-gray-400 rounded-md w-full h-[40px] focus:outline-none
-            ${isNameFocused  && !isValidName ? 'bg-red-50 border border-red-500' : ''}
-            `} />
+        <div className="text-right mx-[24px] mt-[24px]">
+          <label htmlFor="email" className="font-normal text-TS">
+            ایمیل
+          </label>
+          <br />
+          <input
+            type="email"
+            {...register("email", {
+              pattern: {
+                value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i,
+                message: "Enter a valid e-mail address",
+              },
+            })}
+            className={`border border-gray-400 pr-3 rounded-md w-full h-[40px] focus:outline-none
+            ${
+              errors.email && touchedFields.email
+                ? "bg-red-50 border border-red-500"
+                : ""
+            }
+            `}
+          />
+          <div className="text-xs mt-2 mr-2 text-red-600">
+            {errors.email?.message}
           </div>
+        </div>
 
-          <div className="text-right mx-[24px] mt-[24px]" >
-            <label htmlFor="email" className="font-normal text-TS">ایمیل</label>
-            <br />
-            <input 
-            onFocus={handleEmailFocused}  
-            onChange={handleEmailChange} 
-            type="email" 
-            id="email" 
-            className={`border border-gray-400 rounded-md w-full h-[40px] focus:outline-none 
-            ${isEmailFocused  && !isValid ? 'bg-red-50 border border-red-500' : ''}
-            `} />
+        <div className="text-right mx-[24px] mt-[24px]">
+          <label htmlFor="password" className="font-normal text-TS ">
+            رمز عبور
+          </label>
+          <br />
+          <input
+            type="password"
+            {...register("password")}
+            className={`border border-solid border-1 pr-3 border-gray-400 rounded-md w-full h-[40px] focus:outline-none
+            ${
+              errors.password && touchedFields.password
+                ? "bg-red-50 border border-red-500"
+                : ""
+            }
+            `}
+          />
+          <div className="text-xs mt-2 mr-2 text-red-600">
+            {errors.password?.message}
           </div>
+        </div>
 
-          <div  className="text-right mx-[24px] mt-[24px]">
-            <label  htmlFor="password" className="font-normal text-TS " >رمز عبور</label>
-            <br />
-            <input  
-            onChange={handlePasswordChange} 
-            onFocus={handlePasswordFocused} 
-            type="password" 
-            id="password" 
-            className={`border border-solid border-1 border-gray-400 rounded-md w-full h-[40px] focus:outline-none 
-            ${isPasswordFocused  && !isValidPassword ? 'bg-red-50 border border-red-500' : ''}
-            `}/>
-          </div>
-
-          <div dir='rtl' className=" flex items-center text-right mx-[24px]  mt-[20px] ">
-            <input 
-            type="checkbox"  
-            id="terms" 
-            className=" hover:text-blue  w-[20px] h-[20px] text-center " 
+        <div
+          dir="rtl"
+          className="flex flex-col items-center text-right mx-[24px] mt-[20px] "
+        >
+          <div className="ml-auto flex">
+            <input
+              type="checkbox"
+              {...register("acceptTerms")}
+              className="hover:text-blue w-[20px] h-[20px]"
             />
-            <label htmlFor="terms" className="text-TS mr-[8px]">{test}{dot}</label>
+            <label htmlFor="acceptTerms" className="text-TS mr-[8px] ">
+              قوانین و مقررات را می‌پذیرم.
+            </label>
           </div>
+          {errors.acceptTerms && (
+            <div className="text-xs ml-auto text-red-600">
+              {errors.acceptTerms?.message}
+            </div>
+          )}
+        </div>
 
-          <Link to="/main" className="mx-[24px] mt-[32px] mb-[24px] p-[10px]  bg-[#208D8E] rounded-md text-[#FFFFFF] hover:bg-teal-700 text-center"><button onClick={btnHandler}>ثبت‌نام</button></Link>
+        <div className="mx-[24px] mt-[32px] mb-[24px] p-[10px]  bg-[#208D8E] rounded-md text-[#FFFFFF] hover-bg-teal-700 text-center">
+          <button type="submit" onClick={handleSubmit(onSubmit)}>ثبت‌نام</button>
+        </div>
       </form>
-    
     </div>
-      
-      );
-  }
-  
-  export default Index
-  
+  );
+};
+
+export default Index;

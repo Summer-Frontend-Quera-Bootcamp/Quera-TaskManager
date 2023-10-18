@@ -33,8 +33,8 @@ const Index: React.FC = () => {
         dayCellContent={(props) => {
           return (
             <div className="w-full h-full group">
-              <div className="flex justify-between">
-                <button onClick={openModal} className="bg-[#208d8e] rounded-[3px] opacity-0 group-hover:opacity-100">
+              <div className="flex ">
+                <button className="bg-[#208d8e] rounded-[3px] opacity-0 group-hover:opacity-100">
                   <Plussquare/>
                 </button>
                 <Modal isOpen={isModalOpen} onClose={closeModal}>
