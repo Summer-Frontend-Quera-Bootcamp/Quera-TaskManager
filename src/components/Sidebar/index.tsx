@@ -89,7 +89,7 @@ const Index = () => {
         </div>
       </div>
       <div className=" h-[89px] m-[32px] relative">
-        <Link to="/ShowInformation">
+        <Link to="/Profile">
           <div className="absolute top-0 right-0 flex items-center cursor-pointer space-x-XS">
             <p className="font-medium text-TM">نیلوفر موجودی</p>
             <svg
