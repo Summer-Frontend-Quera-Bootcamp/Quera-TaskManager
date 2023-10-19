@@ -2,8 +2,20 @@ import { Link } from "react-router-dom";
 import { useForm, Controller } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
-import { loginUser } from "../../service/auth";
-
+// import { loginUser } from "../../service/auth";
+// import { RequestStatus } from "../../common";
+import { useEffect } from "react";
+import { paths } from "../../routes/paths";
+import { useNavigate } from "react-router-dom";
+import {
+  loginAsync,
+  selectAuthState,
+  selectUserState,
+  useAppDispatch,
+  useAppSelector,
+} from "../../app/store";
+import { useCallback } from "react";
+import { RequestStatus } from "../../common";
 type LoginFormUser = {
   username: string;
   password: string;
@@ -11,43 +23,61 @@ type LoginFormUser = {
 
 const ValidationSchema = yup.object().shape({
   username: yup
-      .string()
-      .required("وارد کردن نام الزامی می‌باشد!")
-      .min(4, "حداقل طول نام ۴ کارکتر می‌باشد!")
-      .max(150, "حداکثر طول نام ۲۰ کارکتر می‌باشد!")
-      .matches(
-        /^(?!.*[.+_@-]{2})[a-zA-Z0-9.+_@-]+[a-zA-Z0-9]$/i,
-        " فرمت نام نامعتبر است!"
-      ),
+    .string()
+    .required("وارد کردن نام الزامی می‌باشد!")
+    .min(4, "حداقل طول نام ۴ کارکتر می‌باشد!")
+    .max(150, "حداکثر طول نام ۲۰ کارکتر می‌باشد!")
+    .matches(
+      /^(?!.*[.+_@-]{2})[a-zA-Z0-9.+_@-]+[a-zA-Z0-9]$/i,
+      " فرمت نام نامعتبر است!"
+    ),
 
-    password: yup
+  password: yup
     .string()
     .required("وارد کردن رمز عبور الزامی می‌باشد!")
     .min(6, "حداقل طول رمز عبور ۶ کارکتر می‌باشد!")
-    .max(40, "حداکثر طول رمز عبور ۴۰ کارکتر می‌باشد!")
+    .max(40, "حداکثر طول رمز عبور ۴۰ کارکتر می‌باشد!"),
 });
 
 const Index: React.FC = () => {
+  const dispatch = useAppDispatch();
+  const navigate = useNavigate();
+  const { error, status } = useAppSelector(selectAuthState);
+  const { user } = useAppSelector(selectUserState);
   const {
     handleSubmit,
     control,
-    formState: { errors,touchedFields },
+    formState: { errors, touchedFields },
   } = useForm<LoginFormUser>({
     resolver: yupResolver(ValidationSchema),
-    mode:"onChange"
+    mode: "onChange",
   });
 
-  const onSubmit = (data: LoginFormUser) => {
-    // // console.log(JSON.stringify(data, null, 2));
-    loginUser(data).then((res) => {
-      if (res.status === 200) {
-        const date = res.data;
-       localStorage.setItem("token",date.token);
-       localStorage.setItem("user",JSON.stringify(data))
-        console.log(date);
-      }
-    });
-  };
+  // const onSubmit = (data: LoginFormUser) => {
+  //   // // console.log(JSON.stringify(data, null, 2));
+  //   // loginUser(data).then((res) => {
+  //   //   if (res.status === 200) {
+  //   //     const date = res.data;
+  //   //    localStorage.setItem("token",date.token);
+  //   //    localStorage.setItem("user",JSON.stringify(data))
+  //   //     console.log(date);
+  //   //   }
+  //   // });
+
+  // };
+  const onSubmit = useCallback(
+    (data: LoginFormUser) => {
+      dispatch(
+        loginAsync({ username: data.username, password: data.password })
+      );
+    },
+    [dispatch]
+  );
+  useEffect(() => {
+    if (user) {
+      navigate(paths.HOME, { replace: true });
+    }
+  }, [user, navigate]);
 
   return (
     <div className="flex flex-col items-center my-auto mt-[149px]" dir="rtl">
@@ -75,15 +105,15 @@ const Index: React.FC = () => {
                 {...field}
                 className={`border pr-3 border-gray-400 rounded-md w-full h-[40px] focus:outline-none ${
                   touchedFields.username && errors.username
-                  ? "bg-red-50 border border-red-500"
-                  : ""
+                    ? "bg-red-50 border border-red-500"
+                    : ""
                 }`}
               />
             )}
           />
-            <div className="text-xs mt-2 mr-2 text-red-600">
-              {errors.username?.message}
-            </div>
+          <div className="text-xs mt-2 mr-2 text-red-600">
+            {errors.username?.message}
+          </div>
         </div>
 
         <div className="text-right mx-[24px] mt-[24px]">
@@ -102,15 +132,15 @@ const Index: React.FC = () => {
                 {...field}
                 className={`border pr-3 border-gray-400 rounded-md w-full h-[40px] focus:outline-none ${
                   touchedFields.password && errors.password
-                  ? "bg-red-50 border border-red-500"
-                  : ""
+                    ? "bg-red-50 border border-red-500"
+                    : ""
                 }`}
               />
             )}
           />
-            <div className="text-xs mt-2 mr-2 text-red-600">
-              {errors.password?.message}
-            </div>
+          <div className="text-xs mt-2 mr-2 text-red-600">
+            {errors.password?.message}
+          </div>
         </div>
 
         <Link
@@ -121,7 +151,6 @@ const Index: React.FC = () => {
         </Link>
 
         <button
-        
           type="submit"
           className="mx-[24px] mt-[32px] mb-[24px] p-[10px] bg-[#208D8E] rounded-md text-[#FFFFFF] hover:bg-teal-700 text-center"
         >
@@ -133,6 +162,7 @@ const Index: React.FC = () => {
             className="text-[#208D8E] font-extra-bold mr-[7px]"
             // to="/SignUp"
             onClick={handleSubmit(onSubmit)}
+            disabled={status === RequestStatus.Loading}
           >
             ثبت‌نام
           </button>
@@ -144,10 +174,3 @@ const Index: React.FC = () => {
 };
 
 export default Index;
-
-
-
-
-
-
-
