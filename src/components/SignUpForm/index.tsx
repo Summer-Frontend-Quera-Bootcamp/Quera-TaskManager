@@ -2,8 +2,19 @@ import React from "react";
 import { useForm, FieldValues } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
-import { registerUser } from "../../service/auth";
+import { RequestStatus } from "../../common/request-status";
+import { useCallback, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+import { paths } from "../../routes/paths";
+import {
+  registerAsync,
+  selectUserState,
+  useAppDispatch,
+  useAppSelector,
+} from "../../app/store";
 
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 type UserSubmitForm = {
   username: string;
   email: string;
@@ -12,6 +23,9 @@ type UserSubmitForm = {
 };
 
 const Index: React.FC = () => {
+  const dispatch = useAppDispatch();
+  const navigate = useNavigate();
+  const { registerError, status, user } = useAppSelector(selectUserState);
   const ValidationSchema = yup.object().shape({
     username: yup
       .string()
@@ -50,12 +64,28 @@ const Index: React.FC = () => {
     mode: "onChange",
   });
 
-  const onSubmit = (data: UserSubmitForm) => {
-    registerUser(data).then((res) => {
-      console.log("user", res);
-    });
-  };
-
+  // const onSubmit = (data: UserSubmitForm) => {
+  //   registerUser(data).then((res) => {
+  //     console.log("user", res);
+  //   });
+  // };
+  const onSubmit = useCallback(
+    (data: UserSubmitForm) => {
+      dispatch(
+        registerAsync({
+          username: data.username,
+          email: data.email,
+          password: data.password,
+        })
+      );
+    },
+    [dispatch]
+  );
+  useEffect(() => {
+    if (user) {
+      navigate(paths.HOME, { replace: true });
+    }
+  }, [user, navigate]);
   return (
     <div className="flex flex-col items-center my-auto" dir="rtl">
       <form
@@ -89,8 +119,8 @@ const Index: React.FC = () => {
               {errors.username?.message}
               <p>- نام باید با حروف و اعداد انگلیسی باشد!</p>
               <p>
-                 - شما می توانید در نام کاربری خود فقط از علامت های  (. ـ - + @)
-            استفاده کنید!
+                - شما می توانید در نام کاربری خود فقط از علامت های (. ـ - + @)
+                استفاده کنید!
               </p>
             </div>
           )}
@@ -165,8 +195,11 @@ const Index: React.FC = () => {
         </div>
 
         <div className="mx-[24px] mt-[32px] mb-[24px] p-[10px]  bg-[#208D8E] rounded-md text-[#FFFFFF] hover-bg-teal-700 text-center">
-          <button type="submit" onClick={handleSubmit(onSubmit)}>ثبت‌نام</button>
+          <button type="submit" disabled={status === RequestStatus.Loading}>
+            ثبت‌نام
+          </button>
         </div>
+        {/* {registerError } */}
       </form>
     </div>
   );

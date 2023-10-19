@@ -17,10 +17,10 @@ import './App.css';
 
 function App() {
   return (
-    <BrowserRouter>
+
       <Routes>
-        <Route path="/" element={<Login/>} />
-        <Route path="/signup" element={<SignUp/>} />
+        <Route path="/login" element={<Login/>} />
+        <Route path="/register" element={<SignUp/>} />
         <Route path="/forgot" element={<Forgot/>} />
         <Route path="/linksend" element={<Linksend/>} />
         <Route path="/Forgotnewpass" element={<Forgotnewpass/>} />
@@ -29,7 +29,6 @@ function App() {
         <Route path="/404" element={<NotFound/>} />
         <Route path="*" element={<Navigate to="404"/>} />
       </Routes>
-    </BrowserRouter>
   );
 }
 
